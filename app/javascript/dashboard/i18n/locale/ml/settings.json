@@ -129,7 +129,6 @@
     "CONVERSATIONS": "സംഭാഷണങ്ങൾ",
     "REPORTS": "റിപ്പോർട്ടുകൾ",
     "CONTACTS": "കോൺ‌ടാക്റ്റുകൾ",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "ക്രമീകരണങ്ങൾ",
     "HOME": "ഹോം",
     "AGENTS": "ഏജന്റുമാർ",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "അക്കൗണ്ട് ക്രമീകരണങ്ങൾ",
     "APPLICATIONS": "Applications",
     "LABELS": "ലേബലുകൾ",
-    "TEAMS": "Teams",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "Teams"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "പുതിയ അക്കൗണ്ട്",

@@ -129,7 +129,6 @@
     "CONVERSATIONS": "Samtaler",
     "REPORTS": "Rapporter",
     "CONTACTS": "Kontakter",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "Indstillinger",
     "HOME": "Hjem",
     "AGENTS": "Agenter",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "Kontoindstillinger",
     "APPLICATIONS": "Applications",
     "LABELS": "Etiketter",
-    "TEAMS": "Teams",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "Teams"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "Ny Konto",

@@ -9,10 +9,9 @@
       </a>
       <p>
         {{
-          useInstallationName(
-            $t('INBOX_MGMT.ADD.FB.HELP'),
-            globalConfig.installationName
-          )
+          $t('INBOX_MGMT.ADD.FB.HELP', {
+            projectName: globalConfig.installationName
+          })
         }}
       </p>
     </div>
@@ -23,10 +22,9 @@
           <page-header
             :header-title="$t('INBOX_MGMT.ADD.DETAILS.TITLE')"
             :header-content="
-              useInstallationName(
-                $t('INBOX_MGMT.ADD.DETAILS.DESC'),
-                globalConfig.installationName
-              )
+              $t('INBOX_MGMT.ADD.DETAILS.DESC', {
+                projectName: globalConfig.installationName
+              })
             "
           />
         </div>

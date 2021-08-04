@@ -27,7 +27,7 @@
   "BUBBLE": {
     "LABEL": "Sohbet et"
   },
-  "POWERED_BY": "Chatwoot tarafından desteklenmektedir",
+  "POWERED_BY": "Abrand tarafından desteklenmektedir",
   "EMAIL_PLACEHOLDER": "Lütfen E-postanızı Girin",
   "CHAT_PLACEHOLDER": "Mesajınız",
   "TODAY": "Bugün",
@@ -56,10 +56,5 @@
     "INVALID": {
       "FIELD": "Invalid field"
     }
-  },
-  "CSAT": {
-    "TITLE": "Rate your conversation",
-    "SUBMITTED_TITLE": "Thank you for submitting the rating",
-    "PLACEHOLDER": "Tell us more..."
   }
 }

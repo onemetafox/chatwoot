@@ -18,14 +18,19 @@
       "TITLE": "Edelliset keskustelut"
     },
     "LABELS": {
-      "CONTACT": {
-        "TITLE": "Contact Labels",
-        "ERROR": "Couldn't update labels"
+      "TITLE": "Keskustelutunnisteet",
+      "MODAL": {
+        "TITLE": "Tunnisteet kohteelle",
+        "ACTIVE_LABELS": "Keskusteluun lisätyt tunnisteet",
+        "INACTIVE_LABELS": "Tilissä saatavilla olevat tunnisteet",
+        "REMOVE": "Napsauta X-kuvaketta poistaaksesi tunnisteen",
+        "ADD": "Napsauta + kuvaketta lisätäksesi tunnisteen",
+        "ADD_BUTTON": "Add Labels",
+        "UPDATE_BUTTON": "Päivitä tunnisteet",
+        "UPDATE_ERROR": "Tunnisteita ei voitu päivittää, yritä uudelleen."
       },
-      "CONVERSATION": {
-        "TITLE": "Keskustelutunnisteet",
-        "ADD_BUTTON": "Add Labels"
-      },
+      "NO_LABELS_TO_ADD": "Tällä tilillä ei ole enempää tunnisteita.",
+      "NO_AVAILABLE_LABELS": "Tälle keskustelulle ei ole lisätty tunnisteita.",
       "LABEL_SELECT": {
         "TITLE": "Add Labels",
         "PLACEHOLDER": "Search labels",
@@ -136,7 +141,6 @@
     "LIST": {
       "LOADING_MESSAGE": "Ladataan yhteystietoja...",
       "404": "Ei hakua vastaavia yhteystietoja 🔍",
-      "NO_CONTACTS": "There are no available contacts",
       "TABLE_HEADER": {
         "NAME": "Nimi",
         "PHONE_NUMBER": "Puhelinnumero",
@@ -151,16 +155,6 @@
       "VIEW_DETAILS": "View details"
     }
   },
-  "REMINDER": {
-    "ADD_BUTTON": {
-      "BUTTON": "Add",
-      "TITLE": "Shift + Enter to create a task"
-    },
-    "FOOTER": {
-      "DUE_DATE": "Due date",
-      "LABEL_TITLE": "Set type"
-    }
-  },
   "NOTES": {
     "HEADER": {
       "TITLE": "Notes"
@@ -172,16 +166,6 @@
     },
     "FOOTER": {
       "BUTTON": "View all notes"
-    }
-  },
-  "EVENTS": {
-    "HEADER": {
-      "TITLE": "Activities"
-    },
-    "BUTTON": {
-      "PILL_BUTTON_NOTES": "notes",
-      "PILL_BUTTON_EVENTS": "events",
-      "PILL_BUTTON_CONVO": "keskustelut"
     }
   },
   "CUSTOM_ATTRIBUTES": {

@@ -129,7 +129,6 @@
     "CONVERSATIONS": "Konuşmalar",
     "REPORTS": "Raporlar",
     "CONTACTS": "Kişiler",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "Ayarlar",
     "HOME": "Anasayfa",
     "AGENTS": "Kullanıcılar",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "Hesap ayarları",
     "APPLICATIONS": "Applications",
     "LABELS": "Etiketler",
-    "TEAMS": "Teams",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "Teams"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "Yeni hesap",

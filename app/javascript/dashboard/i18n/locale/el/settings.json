@@ -129,7 +129,6 @@
     "CONVERSATIONS": "Συζητήσεις",
     "REPORTS": "Αναφορές",
     "CONTACTS": "Επαφές",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "Ρυθμίσεις",
     "HOME": "Αρχική",
     "AGENTS": "Πράκτορες",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "Ρυθμίσεις Λογαριασμού",
     "APPLICATIONS": "Εφαρμογές",
     "LABELS": "Ετικέτες",
-    "TEAMS": "Ομάδες",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "Ομάδες"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "Νέος Λογαριασμός",

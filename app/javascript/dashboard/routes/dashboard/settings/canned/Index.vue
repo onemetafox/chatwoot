@@ -11,7 +11,7 @@
 
     <!-- List Canned Response -->
     <div class="row">
-      <div class="small-8 columns with-right-space ">
+      <div class="small-8 columns">
         <p
           v-if="!uiFlags.fetchingList && !records.length"
           class="no-items-error-message"
@@ -75,7 +75,11 @@
       </div>
 
       <div class="small-4 columns">
-        <span v-html="$t('CANNED_MGMT.SIDEBAR_TXT')"></span>
+        <span v-html="
+          $t('CANNED_MGMT.SIDEBAR_TXT', {
+            projectName: globalConfig.installationName
+          })
+        "></span>
       </div>
     </div>
     <!-- Add Agent -->

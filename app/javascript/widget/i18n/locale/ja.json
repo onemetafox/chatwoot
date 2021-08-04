@@ -27,7 +27,7 @@
   "BUBBLE": {
     "LABEL": "チャットをする"
   },
-  "POWERED_BY": "Powered by Chatwoot",
+  "POWERED_BY": "Powered by Abrand",
   "EMAIL_PLACEHOLDER": "メールアドレスを入力してください。",
   "CHAT_PLACEHOLDER": "メッセージを入力してください。",
   "TODAY": "今日",
@@ -51,15 +51,5 @@
       }
     }
   },
-  "FILE_SIZE_LIMIT": "添付ファイルサイズの上限 {MAXIMUM_FILE_UPLOAD_SIZE} を超えています",
-  "CHAT_FORM": {
-    "INVALID": {
-      "FIELD": "Invalid field"
-    }
-  },
-  "CSAT": {
-    "TITLE": "Rate your conversation",
-    "SUBMITTED_TITLE": "Thank you for submitting the rating",
-    "PLACEHOLDER": "Tell us more..."
-  }
+  "FILE_SIZE_LIMIT": "添付ファイルサイズの上限 {MAXIMUM_FILE_UPLOAD_SIZE} を超えています"
 }

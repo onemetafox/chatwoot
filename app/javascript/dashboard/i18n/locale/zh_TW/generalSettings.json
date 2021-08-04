@@ -43,13 +43,13 @@
         "CUSTOM_EMAIL_DOMAIN_ENABLED": "您現在可以在您的自定義域名的電子信箱中接收消息。"
       }
     },
-    "UPDATE_CHATWOOT": "An update %{latestChatwootVersion} for Chatwoot is available. Please update your instance."
+    "UPDATE_CHATWOOT": "An update %{latestChatwootVersion} for %{projectName} is available. Please update your instance."
   },
   "FORMS": {
     "MULTISELECT": {
       "ENTER_TO_SELECT": "按下 enter 以選擇",
       "ENTER_TO_REMOVE": "按下 enter 以移除",
-      "SELECT_ONE": "選擇其中一項"
+      "SELECT_ONE": "Select one"
     }
   },
   "NOTIFICATIONS_PAGE": {
@@ -62,14 +62,14 @@
         "姓名",
         "聯絡人電話",
         "對話",
-        "最後聯絡"
+        "Last Contacted"
       ]
     },
     "TYPE_LABEL": {
       "conversation_creation": "新對話",
       "conversation_assignment": "Conversation Assigned",
       "assigned_conversation_new_message": "新訊息",
-      "conversation_mention": "被提及"
+      "conversation_mention": "Mention"
     }
   }
 }

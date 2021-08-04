@@ -56,7 +56,6 @@
       <message
         v-for="message in getReadMessages"
         :key="message.id"
-        class="message--read"
         :data="message"
         :is-a-tweet="isATweet"
       />
@@ -73,7 +72,6 @@
       <message
         v-for="message in getUnReadMessages"
         :key="message.id"
-        class="message--unread"
         :data="message"
         :is-a-tweet="isATweet"
       />
@@ -108,7 +106,6 @@ import { getTypingUsersText } from '../../../helper/commons';
 import { BUS_EVENTS } from 'shared/constants/busEvents';
 import { REPLY_POLICY } from 'shared/constants/links';
 import inboxMixin from 'shared/mixins/inboxMixin';
-import { calculateScrollTop } from './helpers/scrollTopCalculationHelper';
 
 export default {
   components: {
@@ -262,23 +259,7 @@ export default {
       this.conversationPanel.removeEventListener('scroll', this.handleScroll);
     },
     scrollToBottom() {
-      let relevantMessages = [];
-      if (this.getUnreadCount > 0) {
-        // capturing only the unread messages
-        relevantMessages = this.conversationPanel.querySelectorAll(
-          '.message--unread'
-        );
-      } else {
-        // capturing last message from the messages list
-        relevantMessages = Array.from(
-          this.conversationPanel.querySelectorAll('.message--read')
-        ).slice(-1);
-      }
-      this.conversationPanel.scrollTop = calculateScrollTop(
-        this.conversationPanel.scrollHeight,
-        this.$el.scrollHeight,
-        relevantMessages
-      );
+      this.conversationPanel.scrollTop = this.conversationPanel.scrollHeight;
     },
     onToggleContactPanel() {
       this.$emit('contact-panel-toggle');

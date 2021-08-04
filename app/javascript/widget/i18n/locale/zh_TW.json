@@ -19,7 +19,7 @@
   },
   "START_CONVERSATION": "開始對話",
   "UNREAD_VIEW": {
-    "VIEW_MESSAGES_BUTTON": "查看新訊息",
+    "VIEW_MESSAGES_BUTTON": "See new messages",
     "CLOSE_MESSAGES_BUTTON": "關閉",
     "COMPANY_FROM": "from",
     "BOT": "機器人"
@@ -27,7 +27,7 @@
   "BUBBLE": {
     "LABEL": "與我們對話"
   },
-  "POWERED_BY": "Powered by Chatwoot",
+  "POWERED_BY": "Powered by Abrand",
   "EMAIL_PLACEHOLDER": "請輸入您的電子信箱",
   "CHAT_PLACEHOLDER": "輸入你的訊息",
   "TODAY": "今天",
@@ -47,19 +47,9 @@
       "MESSAGE": {
         "LABEL": "訊息",
         "PLACEHOLDER": "請輸入你的訊息",
-        "ERROR": "訊息過短"
+        "ERROR": "Message too short"
       }
     }
   },
-  "FILE_SIZE_LIMIT": "File exceeds the {MAXIMUM_FILE_UPLOAD_SIZE} attachment limit",
-  "CHAT_FORM": {
-    "INVALID": {
-      "FIELD": "Invalid field"
-    }
-  },
-  "CSAT": {
-    "TITLE": "Rate your conversation",
-    "SUBMITTED_TITLE": "Thank you for submitting the rating",
-    "PLACEHOLDER": "Tell us more..."
-  }
+  "FILE_SIZE_LIMIT": "File exceeds the {MAXIMUM_FILE_UPLOAD_SIZE} attachment limit"
 }

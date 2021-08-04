@@ -20,7 +20,9 @@ export default {
       globalConfig: 'globalConfig/get',
     }),
     items() {
-      return this.$t('INBOX_MGMT.CREATE_FLOW').map(item => ({
+      return this.$t('INBOX_MGMT.CREATE_FLOW', {
+        projectName: globalConfig.installationName
+      }).map(item => ({
         ...item,
         body: this.useInstallationName(
           item.body,

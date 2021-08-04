@@ -23,7 +23,7 @@
       },
       "ACCESS_TOKEN": {
         "TITLE": "رمز المصادقة",
-        "NOTE": "يمكن استخدام هذا رمز المصادقة إذا كنت تبني تطبيقات API للتكامل مع Chatwoot"
+        "NOTE": "يمكن استخدام هذا رمز المصادقة إذا كنت تبني تطبيقات API للتكامل مع %{projectName}"
       },
       "AUDIO_NOTIFICATIONS_SECTION": {
         "TITLE": "الإشعارات الصوتية",
@@ -130,7 +130,6 @@
     "REPORTS": "التقارير",
     "CONTACTS": "جهات الاتصال",
     "SETTINGS": "الإعدادات",
-    "MOONBOARD": "ContentBoards",
     "HOME": "الرئيسية",
     "AGENTS": "موظف الدعم",
     "INBOXES": "قنوات التواصل",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "إعدادات الحساب",
     "APPLICATIONS": "Applications",
     "LABELS": "الوسوم",
-    "TEAMS": "الفرق",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "الفرق"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "حساب جديد",

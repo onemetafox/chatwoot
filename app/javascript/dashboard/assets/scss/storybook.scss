@@ -8,7 +8,6 @@
 @import 'variables';
 
 @import '~spinkit/scss/spinners/7-three-bounce';
-@import '~vue-multiselect/dist/vue-multiselect.min.css';
 @import '~shared/assets/stylesheets/ionicons';
 
 @import 'mixins';
@@ -28,5 +27,3 @@
 @import 'foundation-custom';
 @import 'widgets/buttons';
 @import 'widgets/forms';
-
-@import 'plugins/multiselect';

@@ -129,7 +129,6 @@
     "CONVERSATIONS": "گفتگوها",
     "REPORTS": "گزارشات",
     "CONTACTS": "مخاطبین",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "تنظیمات",
     "HOME": "صفحه اصلی",
     "AGENTS": "اپراتورها",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "تنظیمات حساب",
     "APPLICATIONS": "Applications",
     "LABELS": "برچسب‌ها",
-    "TEAMS": "تیم‌ها",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "تیم‌ها"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "حساب‌کاربری جدید",

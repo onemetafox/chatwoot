@@ -129,7 +129,6 @@
     "CONVERSATIONS": "会话",
     "REPORTS": "报告",
     "CONTACTS": "Contacts",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "设置",
     "HOME": "首页",
     "AGENTS": "客服代理们",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "帐户设置",
     "APPLICATIONS": "Applications",
     "LABELS": "标签",
-    "TEAMS": "Teams",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "Teams"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "New Account",

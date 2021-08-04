@@ -129,7 +129,6 @@
     "CONVERSATIONS": "Keskustelut",
     "REPORTS": "Raportit",
     "CONTACTS": "Yhteystiedot",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "Asetukset",
     "HOME": "Koti",
     "AGENTS": "Edustajat",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "Tilin asetukset",
     "APPLICATIONS": "Applications",
     "LABELS": "Tunnisteet",
-    "TEAMS": "Teams",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "Teams"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "Uusi tili",

@@ -34,15 +34,11 @@ import {
 import * as Sentry from '@sentry/vue';
 import 'vue-easytable/libs/theme-default/index.css';
 import { Integrations } from '@sentry/tracing';
-//moonboard
-import TurbolinksAdapter from 'vue-turbolinks'
-import VuePackeryPlugin from 'vue-packery-plugin'
-import VueDraggabillyPlugin from 'vue-packery-draggabilly-plugin'
-Vue.use(TurbolinksAdapter)
-Vue.use(VuePackeryPlugin)
-Vue.use(VueDraggabillyPlugin)
 
-
+/////////////////////// cscs define
+import { ModalPlugin } from 'bootstrap-vue'
+import MdPlugin from './material-ui.js'
+////////////////////////////////////////////
 
 Vue.config.env = process.env;
 
@@ -68,6 +64,11 @@ Vue.use(VTooltip, {
 });
 Vue.use(hljs.vuePlugin);
 
+/////////////////////// cscs define 
+Vue.use(ModalPlugin);
+Vue.use(MdPlugin);
+/////////////////////////////////////////
+
 Vue.component('multiselect', Multiselect);
 Vue.component('woot-switch', WootSwitch);
 Vue.component('woot-wizard', WootWizard);
@@ -85,15 +86,14 @@ window.WootConstants = constants;
 window.axios = createAxios(axios);
 window.bus = new Vue();
 window.onload = () => {
-  console.log("this is the test");
-  // window.WOOT = new Vue({
-  //   router,
-  //   store,
-  //   i18n: i18nConfig,
-  //   components: { App },
-  //   template: '<App/>',
-  // }).$mount('#app');
-  // vueActionCable.init();
+  window.WOOT = new Vue({
+    router,
+    store,
+    i18n: i18nConfig,
+    components: { App },
+    template: '<App/>',
+  }).$mount('#app');
+  vueActionCable.init();
 };
 window.addEventListener('load', () => {
   verifyServiceWorkerExistence(registration =>
@@ -105,4 +105,27 @@ window.addEventListener('load', () => {
   );
   getAlertAudio();
   initFaviconSwitcher();
+});
+
+window.addEventListener('load', () => {
+  navigator.serviceWorker
+    .register('/sw.js')
+    .then(registration => {
+      console.log('ServiceWorker registered: ', registration);
+
+      var serviceWorker;
+      if (registration.installing) {
+        serviceWorker = registration.installing;
+        console.log('Service worker installing.');
+      } else if (registration.waiting) {
+        serviceWorker = registration.waiting;
+        console.log('Service worker installed & waiting.');
+      } else if (registration.active) {
+        serviceWorker = registration.active;
+        console.log('Service worker active.');
+      }
+    })
+    .catch(registrationError => {
+      console.log('Service worker registration failed: ', registrationError);
+    });
 });

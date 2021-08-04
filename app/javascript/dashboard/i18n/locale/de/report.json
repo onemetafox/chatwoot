@@ -41,15 +41,15 @@
       },
       {
         "id": 2,
-        "name": "Die letzten 3 Monate"
+        "name": "Last 3 months"
       },
       {
         "id": 3,
-        "name": "Die letzten 6 Monate"
+        "name": "Last 6 months"
       },
       {
         "id": 4,
-        "name": "Letztes Jahr"
+        "name": "Last year"
       }
     ]
   }

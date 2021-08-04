@@ -1,7 +1,7 @@
 {
   "INBOX_MGMT": {
     "HEADER": "Kotak masuk",
-    "SIDEBAR_TXT": "<p><b>Kotak Masuk</b></p> <p> Saat Anda menghubungkan website atau Halaman Facebook ke Chatwoot, itu disebut <b>Kotak Masuk</b>. Anda dapat memiliki kotak masuk tak terbatas di akun Chatwoot Anda. </p><p> Klik pada <b>Tambah Kotak masuk</b> untuk menghubungkan situs web atau Halaman Facebook. </p><p> Di Dasbor, Anda dapat melihat semua percakapan dari semua kotak masuk Anda di satu tempat dan menanggapinya di bawah tab `Percakapan`. </p><p> Anda juga dapat melihat percakapan khusus untuk kotak masuk dengan mengklik nama kotak masuk di panel kiri dasbor. </p>",
+    "SIDEBAR_TXT": "<p><b>Kotak Masuk</b></p> <p> Saat Anda menghubungkan website atau Halaman Facebook ke %{projectName}, itu disebut <b>Kotak Masuk</b>. Anda dapat memiliki kotak masuk tak terbatas di akun %{projectName} Anda. </p><p> Klik pada <b>Tambah Kotak masuk</b> untuk menghubungkan situs web atau Halaman Facebook. </p><p> Di Dasbor, Anda dapat melihat semua percakapan dari semua kotak masuk Anda di satu tempat dan menanggapinya di bawah tab `Percakapan`. </p><p> Anda juga dapat melihat percakapan khusus untuk kotak masuk dengan mengklik nama kotak masuk di panel kiri dasbor. </p>",
     "LIST": {
       "404": "Tidak ada kotak masuk yang dilampirkan ke akun ini."
     },
@@ -9,7 +9,7 @@
       {
         "title": "Pilih Channel",
         "route": "settings_inbox_new",
-        "body": "Pilih penyedia yang ingin Anda integrasikan dengan Chatwoot."
+        "body": "Pilih penyedia yang ingin Anda integrasikan dengan %{projectName}."
       },
       {
         "title": "Buat Kotak Masuk",
@@ -28,16 +28,8 @@
       }
     ],
     "ADD": {
-      "CHANNEL_NAME": {
-        "LABEL": "Nama Kotak Masuk",
-        "PLACEHOLDER": "Enter your inbox name (eg: Acme Inc)"
-      },
-      "WEBSITE_NAME": {
-        "LABEL": "Nama Website",
-        "PLACEHOLDER": "Masukkan nama situs web Anda (misalnya: Acme Inc)"
-      },
       "FB": {
-        "HELP": "NB: Dengan masuk, kami hanya mendapatkan akses ke pesan Halaman Anda. Pesan pribadi Anda tidak akan pernah bisa diakses oleh Chatwoot.",
+        "HELP": "NB: Dengan masuk, kami hanya mendapatkan akses ke pesan Halaman Anda. Pesan pribadi Anda tidak akan pernah bisa diakses oleh %{projectName}.",
         "CHOOSE_PAGE": "Pilih Halaman",
         "CHOOSE_PLACEHOLDER": "Pilih halaman dari daftar",
         "INBOX_NAME": "Nama Kotak Masuk",
@@ -55,6 +47,10 @@
         "LOADING_MESSAGE": "Membuat Saluran Dukungan Website",
         "CHANNEL_AVATAR": {
           "LABEL": "Avatar Channel"
+        },
+        "CHANNEL_NAME": {
+          "LABEL": "Nama Website",
+          "PLACEHOLDER": "Masukkan nama situs web Anda (misalnya: Acme Inc)"
         },
         "CHANNEL_DOMAIN": {
           "LABEL": "Domain Website",
@@ -176,11 +172,11 @@
       },
       "DETAILS": {
         "TITLE": "Detail Kotak Masuk",
-        "DESC": "Dari dropdown di bawah, pilih Halaman Facebook yang ingin Anda hubungkan ke Chatwoot. Anda juga dapat memberikan nama khusus ke kotak masuk Anda untuk identifikasi yang lebih baik."
+        "DESC": "Dari dropdown di bawah, pilih Halaman Facebook yang ingin Anda hubungkan ke %{projectName}. Anda juga dapat memberikan nama khusus ke kotak masuk Anda untuk identifikasi yang lebih baik."
       },
       "FINISH": {
         "TITLE": "Berhasil!",
-        "DESC": "Anda telah berhasil menyelesaikan integrasi Halaman Facebook Anda dengan Chatwoot. Saat pelanggan mengirim pesan ke Halaman Anda, percakapan akan otomatis muncul di kotak masuk Anda. <br> Kami juga menyediakan script widget yang dapat dengan mudah ditambahkan ke website Anda. Setelah ini aktif di website Anda, pelanggan dapat mengirimi Anda pesan langsung dari website Anda tanpa bantuan alat eksternal dan percakapan akan muncul di sini, di Chatwoot. <br> Keren, ya? Ya, kami pasti berusaha untuk :)"
+        "DESC": "Anda telah berhasil menyelesaikan integrasi Halaman Facebook Anda dengan %{projectName}. Saat pelanggan mengirim pesan ke Halaman Anda, percakapan akan otomatis muncul di kotak masuk Anda. <br> Kami juga menyediakan script widget yang dapat dengan mudah ditambahkan ke website Anda. Setelah ini aktif di website Anda, pelanggan dapat mengirimi Anda pesan langsung dari website Anda tanpa bantuan alat eksternal dan percakapan akan muncul di sini, di %{projectName}. <br> Keren, ya? Ya, kami pasti berusaha untuk :)"
       }
     },
     "DETAILS": {
@@ -198,7 +194,7 @@
       "TITLE": "Kotak Masuk anda sudah siap!",
       "MESSAGE": "Anda sekarang dapat menangani pelanggan Anda melalui Channel baru Anda. Selamat mendukung ",
       "BUTTON_TEXT": "Pergi ke Kotak Masuk",
-      "MORE_SETTINGS": "Pengaturan lebih lengkap",
+      "MORE_SETTINGS": "More settings",
       "WEBSITE_SUCCESS": "Anda telah berhasil menyelesaikan pembuatan channel website. Salin kode yang ditunjukkan di bawah ini dan tempelkan di website Anda. Saat pelanggan menggunakan live chat, percakapan tersebut secara otomatis akan muncul di kotak masuk Anda."
     },
     "REAUTH": "Otorisasi ulang",
@@ -212,10 +208,6 @@
       "AUTO_ASSIGNMENT": {
         "ENABLED": "Diaktifkan",
         "DISABLED": "Nonaktif"
-      },
-      "EMAIL_COLLECT_BOX": {
-        "ENABLED": "Diaktifkan",
-        "DISABLED": "Nonaktif"
       }
     },
     "DELETE": {
@@ -223,7 +215,6 @@
       "CONFIRM": {
         "TITLE": "Konfirmasi Penghapusan",
         "MESSAGE": "Apakah Anda yakin untuk menghapus ",
-        "PLACE_HOLDER": "Please type {inboxName} to confirm",
         "YES": "Ya, Hapus ",
         "NO": "Tidak, Simpan "
       },
@@ -236,7 +227,7 @@
       "SETTINGS": "Pengaturan",
       "COLLABORATORS": "Kolaborator",
       "CONFIGURATION": "Konfigurasi",
-      "CAMPAIGN": "Kampanye",
+      "CAMPAIGN": "Campaigns",
       "PRE_CHAT_FORM": "Formulir Pra Obrolan",
       "BUSINESS_HOURS": "Jam Kerja"
     },
@@ -252,8 +243,6 @@
       "INBOX_AGENTS": "Agen",
       "INBOX_AGENTS_SUB_TEXT": "Tambahkan atau hapus agen dari kotak masuk ini",
       "UPDATE": "Perbarui",
-      "ENABLE_EMAIL_COLLECT_BOX": "Enable email collect box",
-      "ENABLE_EMAIL_COLLECT_BOX_SUB_TEXT": "Enable or disable email collect box on new conversation",
       "AUTO_ASSIGNMENT": "Aktifkan penugasan otomatis",
       "INBOX_UPDATE_TITLE": "Pengaturan Kotak Masuk",
       "INBOX_UPDATE_SUB_TEXT": "Perbarui pengaturan kotak masuk Anda",
@@ -288,12 +277,12 @@
       "TITLE": "Atur ketersediaan Anda",
       "SUBTITLE": "Atur ketersediaan Anda di widget livechat",
       "WEEKLY_TITLE": "Tetapkan jam mingguan Anda",
-      "TIMEZONE_LABEL": "Pilih zona waktu",
-      "UPDATE": "Perbarui pengaturan jam kerja",
-      "TOGGLE_AVAILABILITY": "Aktifkan ketersediaan bisnis untuk kotak masuk ini",
-      "UNAVAILABLE_MESSAGE_LABEL": "Pesan tidak tersedia untuk pengunjung",
-      "UNAVAILABLE_MESSAGE_DEFAULT": "Kami tidak tersedia saat ini. Tinggalkan pesan kami akan merespon setelah kami kembali.",
-      "TOGGLE_HELP": "Mengaktifkan ketersediaan bisnis akan menunjukkan jam yang tersedia di widget obrolan langsung meskipun semua agen sedang offline. Di luar jam buka yang tersedia, pengunjung dapat diperingatkan dengan pesan dan formulir pra-obrolan.",
+      "TIMEZONE_LABEL": "Select timezone",
+      "UPDATE": "Update business hours settings",
+      "TOGGLE_AVAILABILITY": "Enable business availability for this inbox",
+      "UNAVAILABLE_MESSAGE_LABEL": "Unavailable message for vistors",
+      "UNAVAILABLE_MESSAGE_DEFAULT": "We are unavailable at the moment. Leave a message we will respond once we are back.",
+      "TOGGLE_HELP": "Enabling business availability will show the available hours on live chat widget even if all the agents are offline. Outside available hours vistors can be warned with a message and a pre-chat form.",
       "DAY": {
         "ENABLE": "Aktifkan ketersediaan untuk hari ini",
         "UNAVAILABLE": "Tidak tersedia",

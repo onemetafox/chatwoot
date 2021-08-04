@@ -129,7 +129,6 @@
     "CONVERSATIONS": "உரையாடல்கள்",
     "REPORTS": "அறிக்கைகள்",
     "CONTACTS": "Contacts",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "அமைப்புகள்",
     "HOME": "முகப்பு",
     "AGENTS": "ஏஜென்ட்கள்",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "கணக்கின் அமைப்புகள்",
     "APPLICATIONS": "Applications",
     "LABELS": "Labels",
-    "TEAMS": "Teams",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "Teams"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "New Account",

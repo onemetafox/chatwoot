@@ -65,11 +65,7 @@ export default {
   display: flex;
   padding: var(--space-slab) 0 0;
   background: var(--color-background-light);
-  background: var(--b-50);
-  border-radius: var(--border-radius-normal);
-  width: fit-content;
-  padding: var(--space-smaller);
-  margin-top: var(--space-normal);
+  background: transparent;
 }
 
 .thumb-wrap {
@@ -118,8 +114,6 @@ export default {
   max-width: 50%;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-left: var(--space-small);
-
   .item {
     height: var(--space-normal);
     overflow: hidden;
@@ -129,7 +123,7 @@ export default {
 }
 
 .file-size-wrap {
-  width: 30%;
+  width: 20%;
   justify-content: center;
 }
 

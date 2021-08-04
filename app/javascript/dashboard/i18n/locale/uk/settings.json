@@ -129,7 +129,6 @@
     "CONVERSATIONS": "Бесіди",
     "REPORTS": "Звіти",
     "CONTACTS": "Contacts",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "Налаштування",
     "HOME": "Головна",
     "AGENTS": "Агенти",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "Налаштування акаунту",
     "APPLICATIONS": "Applications",
     "LABELS": "Labels",
-    "TEAMS": "Teams",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "Teams"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "New Account",

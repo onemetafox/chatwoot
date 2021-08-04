@@ -88,10 +88,7 @@
           <span>{{ $t('REGISTER.HAVE_AN_ACCOUNT') }}</span>
           <router-link to="/app/login">
             {{
-              useInstallationName(
-                $t('LOGIN.TITLE'),
-                globalConfig.installationName
-              )
+              $t('LOGIN.TITLE', { projectName: globalConfig.installationName, })
             }}
           </router-link>
         </div>

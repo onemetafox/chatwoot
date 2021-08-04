@@ -178,20 +178,6 @@ const actions = {
     commit(types.default.ADD_MESSAGE, message);
   },
 
-  deleteMessage: async function deleteLabels(
-    { commit },
-    { conversationId, messageId }
-  ) {
-    try {
-      const response = await MessageApi.delete(conversationId, messageId);
-      const { data } = response;
-      // The delete message is actually deleting the content.
-      commit(types.default.ADD_MESSAGE, data);
-    } catch (error) {
-      throw new Error(error);
-    }
-  },
-
   addConversation({ commit, state, dispatch }, conversation) {
     const { currentInbox } = state;
     const {

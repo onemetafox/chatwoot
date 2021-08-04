@@ -7,6 +7,8 @@ export const getSidebarItems = accountId => ({
       'inbox_dashboard',
       'inbox_conversation',
       'conversation_through_inbox',
+      'contacts_dashboard',
+      'contacts_dashboard_manage',
       'notifications_dashboard',
       'settings_account_reports',
       'profile_settings',
@@ -16,6 +18,7 @@ export const getSidebarItems = accountId => ({
       'team_conversations',
       'conversations_through_team',
       'notifications_index',
+      'post_form',
     ],
     menuItems: {
       assignedToMe: {
@@ -55,28 +58,12 @@ export const getSidebarItems = accountId => ({
         toState: frontendURL(`accounts/${accountId}/settings`),
         toStateName: 'settings_home',
       },
-    },
-  },
-  contacts: {
-    routes: [
-      'contacts_dashboard',
-      'contacts_dashboard_manage',
-      'contacts_labels_dashboard',
-    ],
-    menuItems: {
-      back: {
-        icon: 'ion-ios-arrow-back',
-        label: 'HOME',
+      posts: {
+        icon: "ion-share",
+        label: "POSTS",
         hasSubMenu: false,
-        toStateName: 'home',
-        toState: frontendURL(`accounts/${accountId}/dashboard`),
-      },
-      contacts: {
-        icon: 'ion-person',
-        label: 'ALL_CONTACTS',
-        hasSubMenu: false,
-        toState: frontendURL(`accounts/${accountId}/contacts`),
-        toStateName: 'contacts_dashboard',
+        toState: frontendURL(`accounts/${accountId}/dashboard/posts`),
+        toStateName: "contacts_dashboard",
       },
     },
   },
@@ -107,11 +94,6 @@ export const getSidebarItems = accountId => ({
       'settings_teams_edit',
       'settings_teams_edit_members',
       'settings_teams_edit_finish',
-      'moonboards_list',
-      'moonboards_new',
-      'moonboards_add_items',
-      'moonboards_edit',
-      'moonboards_edit_items'
     ],
     menuItems: {
       back: {
@@ -148,13 +130,6 @@ export const getSidebarItems = accountId => ({
         hasSubMenu: false,
         toState: frontendURL(`accounts/${accountId}/settings/labels/list`),
         toStateName: 'labels_list',
-      },
-      moonboard: {
-        icon: 'ion-dashboard',
-        label: 'MOONBOARD',
-        hasSubMenu: false,
-        toState: frontendURL(`accounts/${accountId}/settings/moonboards/list`),
-        toStateName: 'moonboards_list',
       },
       cannedResponses: {
         icon: 'ion-chatbox-working',

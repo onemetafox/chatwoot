@@ -22,16 +22,10 @@ export default {
       return window.chatwootWebChannel.preChatFormEnabled;
     },
     preChatFormOptions() {
-      let requireEmail = false;
-      let preChatMessage = '';
       const options = window.chatwootWebChannel.preChatFormOptions || {};
-      if (!this.isOnNewConversation) {
-        requireEmail = options.require_email;
-        preChatMessage = options.pre_chat_message;
-      }
       return {
-        requireEmail,
-        preChatMessage,
+        requireEmail: options.require_email,
+        preChatMessage: options.pre_chat_message,
       };
     },
   },

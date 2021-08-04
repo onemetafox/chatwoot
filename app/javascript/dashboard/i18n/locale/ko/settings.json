@@ -129,7 +129,6 @@
     "CONVERSATIONS": "대화",
     "REPORTS": "보고서",
     "CONTACTS": "연락처",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "설정",
     "HOME": "홈",
     "AGENTS": "에이전트",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "계정 설정",
     "APPLICATIONS": "Applications",
     "LABELS": "라벨",
-    "TEAMS": "팀",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "팀"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "새 계정",

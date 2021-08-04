@@ -4,15 +4,11 @@
       <div class="message">
         <i class="ion-ios-chatboxes-outline" />
         <div class="conversation">
-          <div class="user-wrap">
-            <div class="name-wrap">
-              <span class="sub-block-title">{{ userName }}</span>
+          <div class="name-wrap">
+            <span class="user-name">{{ userName }}</span>
+            <div>
+              <span class="conversation-id"># {{ conversationId }}</span>
             </div>
-            <woot-label
-              :title="conversationsId"
-              :small="true"
-              color-scheme="secondary"
-            />
           </div>
           <span class="inbox-name">{{ inboxName }}</span>
         </div>
@@ -73,9 +69,6 @@ export default {
     ...mapGetters({
       accountId: 'getCurrentAccountId',
     }),
-    conversationsId() {
-      return `# ${this.conversationId}`;
-    },
     readableTime() {
       if (!this.timestamp) {
         return '';
@@ -131,6 +124,10 @@ export default {
     .ion-ios-chatboxes-outline {
       color: var(--white);
     }
+    .conversation-id {
+      background: var(--w-50);
+      color: var(--s-500);
+    }
   }
 }
 
@@ -152,26 +149,35 @@ export default {
   padding: var(--space-smaller) var(--space-one);
 }
 
-.user-wrap {
+.name-wrap {
   display: flex;
+  width: 20rem;
 
-  .name-wrap {
-    max-width: 20rem;
+  .user-name {
+    font-size: var(--font-size-default);
+    font-weight: var(--font-weight-bold);
+    margin-right: var(--space-micro);
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+  }
 
-    .sub-block-title {
-      font-weight: var(--font-weight-bold);
-      margin-right: var(--space-micro);
-    }
+  .conversation-id {
+    background: var(--w-400);
+    border-radius: var(--border-radius-normal);
+    color: var(--w-50);
+    align-items: center;
+    font-size: var(--font-size-mini);
+    font-weight: var(--font-weight-bold);
+    padding: 0 var(--space-smaller);
+    white-space: nowrap;
   }
 }
 
 .inbox-name {
   border-radius: var(--border-radius-normal);
   color: var(--s-500);
-  font-size: var(--font-size-mini);
+  font-size: var(--font-size-normal);
   font-weight: var(--font-weight-medium);
 }
 

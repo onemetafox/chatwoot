@@ -9,8 +9,8 @@ import labels from './labels/labels.routes';
 import profile from './profile/profile.routes';
 import reports from './reports/reports.routes';
 import teams from './teams/teams.routes';
-import moonboard from './moonboard/moonboard.routes';
 import store from '../../../store';
+import post from './posts/post.routes';
 
 export default {
   routes: [
@@ -31,10 +31,10 @@ export default {
     ...inbox.routes,
     ...integrations.routes,
     ...labels.routes,
-    ...moonboard.routes,
     ...profile.routes,
     ...reports.routes,
     ...teams.routes,
     ...integrationapps.routes,
+    ...post.routes,
   ],
 };

@@ -4,7 +4,6 @@ const DEFAULT_API_VERSION = 'v1';
 
 class ApiClient {
   constructor(resource, options = {}) {
-
     this.apiVersion = `/api/${options.apiVersion || DEFAULT_API_VERSION}`;
     this.options = options;
     this.resource = resource;
@@ -16,7 +15,6 @@ class ApiClient {
 
   baseUrl() {
     let url = this.apiVersion;
-    
     if (this.options.accountScoped) {
       const isInsideAccountScopedURLs = window.location.pathname.includes(
         '/app/accounts'

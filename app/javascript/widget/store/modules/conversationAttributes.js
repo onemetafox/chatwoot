@@ -1,7 +1,6 @@
 import {
   SET_CONVERSATION_ATTRIBUTES,
   UPDATE_CONVERSATION_ATTRIBUTES,
-  CLEAR_CONVERSATION_ATTRIBUTES,
 } from '../types';
 import { getConversationAPI } from '../../api/conversation';
 
@@ -15,7 +14,7 @@ export const getters = {
 };
 
 export const actions = {
-  getAttributes: async ({ commit }) => {
+  get: async ({ commit }) => {
     try {
       const { data } = await getConversationAPI();
       const { contact_last_seen_at: lastSeen } = data;
@@ -27,9 +26,6 @@ export const actions = {
   },
   update({ commit }, data) {
     commit(UPDATE_CONVERSATION_ATTRIBUTES, data);
-  },
-  clearConversationAttributes: ({ commit }) => {
-    commit('CLEAR_CONVERSATION_ATTRIBUTES');
   },
 };
 
@@ -43,10 +39,6 @@ export const mutations = {
       $state.id = data.id;
       $state.status = data.status;
     }
-  },
-  [CLEAR_CONVERSATION_ATTRIBUTES]($state) {
-    $state.id = '';
-    $state.status = '';
   },
 };
 

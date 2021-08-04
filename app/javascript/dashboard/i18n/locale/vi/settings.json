@@ -129,7 +129,6 @@
     "CONVERSATIONS": "Cuộc trò chuyện",
     "REPORTS": "Báo cáo",
     "CONTACTS": "Contacts",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "Cài Đặt",
     "HOME": "Trang Chủ",
     "AGENTS": "Đại lý",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "Cài Đặt Tài Khoản",
     "APPLICATIONS": "Applications",
     "LABELS": "Nhãn",
-    "TEAMS": "Teams",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "Teams"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "Tạo mới tài khoản",
