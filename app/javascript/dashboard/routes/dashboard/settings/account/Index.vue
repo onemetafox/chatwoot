@@ -84,6 +84,7 @@
           {{
             $t('GENERAL_SETTINGS.UPDATE_CHATWOOT', {
               latestChatwootVersion: latestChatwootVersion,
+              projectName: globalConfig.installationName,
             })
           }}
         </div>

@@ -129,7 +129,6 @@
     "CONVERSATIONS": "Beszélgetések",
     "REPORTS": "Jelentések",
     "CONTACTS": "Kontaktok",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "Beállítások",
     "HOME": "Nyitólap",
     "AGENTS": "Ügynökök",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "Fiókbeállítások",
     "APPLICATIONS": "Applications",
     "LABELS": "Cimkék",
-    "TEAMS": "Csapatok",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "Csapatok"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "Új fiók",

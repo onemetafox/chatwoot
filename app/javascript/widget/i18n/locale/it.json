@@ -27,7 +27,7 @@
   "BUBBLE": {
     "LABEL": "Chatta con noi"
   },
-  "POWERED_BY": "Powered by Chatwoot",
+  "POWERED_BY": "Powered by Abrand",
   "EMAIL_PLACEHOLDER": "Inserisci la tua email",
   "CHAT_PLACEHOLDER": "Scrivi il tuo messaggio",
   "TODAY": "Oggi",
@@ -56,10 +56,5 @@
     "INVALID": {
       "FIELD": "Invalid field"
     }
-  },
-  "CSAT": {
-    "TITLE": "Rate your conversation",
-    "SUBMITTED_TITLE": "Thank you for submitting the rating",
-    "PLACEHOLDER": "Tell us more..."
   }
 }

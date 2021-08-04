@@ -52,6 +52,11 @@
         </a>
       </router-link>
     </ul>
+    <add-label-modal
+      v-if="showAddLabel"
+      :show.sync="showAddLabel"
+      :on-close="hideAddLabelPopup"
+    />
   </router-link>
 </template>
 
@@ -61,8 +66,17 @@ import { mapGetters } from 'vuex';
 import router from '../../routes';
 import adminMixin from '../../mixins/isAdmin';
 import { getInboxClassByType } from 'dashboard/helper/inbox';
+import AddLabelModal from '../../routes/dashboard/settings/labels/AddLabel';
 export default {
+  components: {
+    AddLabelModal,
+  },
   mixins: [adminMixin],
+  data() {
+    return {
+      showAddLabel: false,
+    };
+  },
   props: {
     menuItem: {
       type: Object,
@@ -113,12 +127,18 @@ export default {
         router.push({ name: item.newLinkRouteName, params: { page: 'new' } });
       } else if (item.showModalForNewItem) {
         if (item.modalName === 'AddLabel') {
-          this.$emit('add-label');
+          this.showAddLabelPopup();
         }
       }
     },
     showItem(item) {
       return this.isAdmin && item.newLink !== undefined;
+    },
+    showAddLabelPopup() {
+      this.showAddLabel = true;
+    },
+    hideAddLabelPopup() {
+      this.showAddLabel = false;
     },
   },
 };

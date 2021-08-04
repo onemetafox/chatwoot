@@ -10,7 +10,7 @@
     </woot-button>
 
     <div class="row">
-      <div class="small-8 columns with-right-space ">
+      <div class="small-8 columns">
         <p
           v-if="!uiFlags.fetchingList && !records.length"
           class="no-items-error-message"
@@ -67,10 +67,9 @@
       <div class="small-4 columns">
         <span
           v-html="
-            useInstallationName(
-              $t('INTEGRATION_SETTINGS.WEBHOOK.SIDEBAR_TXT'),
-              globalConfig.installationName
-            )
+            $t('INTEGRATION_SETTINGS.WEBHOOK.SIDEBAR_TXT', {
+              projectName: globalConfig.installationName
+            })
           "
         />
       </div>

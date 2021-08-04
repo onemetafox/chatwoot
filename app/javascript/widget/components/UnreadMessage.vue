@@ -1,6 +1,6 @@
 <template>
   <div class="chat-bubble-wrap">
-    <button class="chat-bubble agent" @click="onClickMessage">
+    <div class="chat-bubble agent">
       <div v-if="showSender" class="row--agent-block">
         <thumbnail
           :src="avatarUrl"
@@ -12,7 +12,7 @@
         <span class="company--name"> {{ companyName }}</span>
       </div>
       <div class="message-content" v-html="formatMessage(message, false)"></div>
-    </button>
+    </div>
   </div>
 </template>
 
@@ -37,10 +37,6 @@ export default {
     sender: {
       type: Object,
       default: () => {},
-    },
-    campaignId: {
-      type: Number,
-      default: null,
     },
   },
   computed: {
@@ -80,11 +76,6 @@ export default {
     isSenderExist(sender) {
       return sender && !isEmptyObject(sender);
     },
-    onClickMessage() {
-      if (this.campaignId) {
-        bus.$emit('on-campaign-view-clicked', this.campaignId);
-      }
-    },
   },
 };
 </script>
@@ -93,9 +84,7 @@ export default {
 .chat-bubble {
   max-width: 85%;
   padding: $space-normal;
-  cursor: pointer;
 }
-
 .row--agent-block {
   align-items: center;
   display: flex;

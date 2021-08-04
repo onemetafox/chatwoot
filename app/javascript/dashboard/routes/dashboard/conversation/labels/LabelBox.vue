@@ -1,11 +1,11 @@
 <template>
-  <div class="sidebar-labels-wrap">
+  <div class="contact-conversation--panel sidebar-labels-wrap">
     <div
       v-if="!conversationUiFlags.isFetching"
       class="contact-conversation--list"
     >
       <contact-details-item
-        :title="$t('CONTACT_PANEL.LABELS.CONVERSATION.TITLE')"
+        :title="$t('CONTACT_PANEL.LABELS.TITLE')"
         icon="ion-pricetags"
         emoji="🏷️"
       />
@@ -30,6 +30,7 @@
               v-if="showSearchDropdownLabel"
               :account-labels="accountLabels"
               :selected-labels="savedLabels"
+              :conversation-id="conversationId"
               @add="addItem"
               @remove="removeItem"
             />
@@ -60,7 +61,7 @@ export default {
   mixins: [clickaway],
   props: {
     conversationId: {
-      type: Number,
+      type: [String, Number],
       required: true,
     },
   },
@@ -149,16 +150,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sidebar-labels-wrap {
-  margin-bottom: var(--space-normal);
+@import '~dashboard/assets/scss/variables';
+@import '~dashboard/assets/scss/mixins';
+
+.contact-conversation--panel {
+  padding: var(--space-micro) var(--space-slab) var(--space-one)
+    var(--space-slab);
 }
+
 .contact-conversation--list {
   width: 100%;
 
   .label-wrap {
-    margin-left: var(--space-medium);
+    margin-left: var(--space-two);
     position: relative;
     line-height: var(--space-medium);
+    bottom: var(--space-small);
 
     .dropdown-wrap {
       display: flex;

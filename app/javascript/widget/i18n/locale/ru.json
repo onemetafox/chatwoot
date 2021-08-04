@@ -27,7 +27,7 @@
   "BUBBLE": {
     "LABEL": "Пообщайтесь с нами"
   },
-  "POWERED_BY": "Работает на Chatwoot",
+  "POWERED_BY": "Работает на Abrand",
   "EMAIL_PLACEHOLDER": "Пожалуйста, введите ваш email",
   "CHAT_PLACEHOLDER": "Введите сообщение",
   "TODAY": "Сегодня",
@@ -51,15 +51,5 @@
       }
     }
   },
-  "FILE_SIZE_LIMIT": "Превышен размер загружаемого файла - {MAXIMUM_FILE_UPLOAD_SIZE}",
-  "CHAT_FORM": {
-    "INVALID": {
-      "FIELD": "Неверное поле"
-    }
-  },
-  "CSAT": {
-    "TITLE": "Оцените разговор",
-    "SUBMITTED_TITLE": "Thank you for submitting the rating",
-    "PLACEHOLDER": "Расскажите подробнее..."
-  }
+  "FILE_SIZE_LIMIT": "Превышен размер загружаемого файла - {MAXIMUM_FILE_UPLOAD_SIZE}"
 }

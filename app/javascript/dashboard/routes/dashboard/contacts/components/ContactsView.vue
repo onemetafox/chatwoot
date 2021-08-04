@@ -7,7 +7,6 @@
         this-selected-contact-id=""
         :on-input-search="onInputSearch"
         :on-toggle-create="onToggleCreate"
-        :header-title="label"
       />
       <contacts-table
         :contacts="records"
@@ -52,9 +51,6 @@ export default {
     ContactInfoPanel,
     CreateContact,
   },
-  props: {
-    label: { type: String, default: '' },
-  },
   data() {
     return {
       searchQuery: '',
@@ -96,11 +92,6 @@ export default {
         : DEFAULT_PAGE;
     },
   },
-  watch: {
-    label() {
-      this.fetchContacts(DEFAULT_PAGE);
-    },
-  },
   mounted() {
     this.fetchContacts(this.pageParameter);
   },
@@ -125,11 +116,7 @@ export default {
     },
     fetchContacts(page) {
       this.updatePageParam(page);
-      const requestParams = {
-        page,
-        sortAttr: this.getSortAttribute(),
-        label: this.label,
-      };
+      const requestParams = { page, sortAttr: this.getSortAttribute() };
       if (!this.searchQuery) {
         this.$store.dispatch('contacts/get', requestParams);
       } else {

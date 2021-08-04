@@ -129,7 +129,6 @@
     "CONVERSATIONS": "Диалоги",
     "REPORTS": "Отчёты",
     "CONTACTS": "Контакты",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "Настройки",
     "HOME": "Главная",
     "AGENTS": "Операторы",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "Настройки аккаунта",
     "APPLICATIONS": "Приложения",
     "LABELS": "Категории",
-    "TEAMS": "Команды",
-    "ALL_CONTACTS": "Все контакты",
-    "TAGGED_WITH": "С метками"
+    "TEAMS": "Команды"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "Новый аккаунт",

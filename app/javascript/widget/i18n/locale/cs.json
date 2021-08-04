@@ -27,7 +27,7 @@
   "BUBBLE": {
     "LABEL": "Napiště nám"
   },
-  "POWERED_BY": "Powered by Chatwoot",
+  "POWERED_BY": "Powered by Abrand",
   "EMAIL_PLACEHOLDER": "Prosím, zadejte svůj e-mail",
   "CHAT_PLACEHOLDER": "Zde začněte psát",
   "TODAY": "Dnes",
@@ -56,10 +56,5 @@
     "INVALID": {
       "FIELD": "Invalid field"
     }
-  },
-  "CSAT": {
-    "TITLE": "Rate your conversation",
-    "SUBMITTED_TITLE": "Thank you for submitting the rating",
-    "PLACEHOLDER": "Tell us more..."
   }
 }

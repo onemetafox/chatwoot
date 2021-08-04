@@ -36,6 +36,16 @@
         </woot-dropdown-item>
         <woot-dropdown-item>
           <woot-button
+              variant="clear"
+              size="small"
+              class=" change-accounts--button"
+              @click="switchToPWA"
+          >
+            {{ $t('SIDEBAR_ITEMS.PWA') }}
+          </woot-button>
+        </woot-dropdown-item>
+        <woot-dropdown-item>
+          <woot-button
             variant="clear"
             size="small"
             class=" change-accounts--button"
@@ -55,6 +65,11 @@ import { mapGetters } from 'vuex';
 import Auth from '../../../api/auth';
 import WootDropdownItem from 'shared/components/ui/dropdown/DropdownItem.vue';
 import WootDropdownMenu from 'shared/components/ui/dropdown/DropdownMenu.vue';
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  window.deferredPrompt = e;
+});
 
 export default {
   components: {
@@ -88,6 +103,9 @@ export default {
       if (this.globalConfig.chatwootInboxToken) {
         window.$chatwoot.reset();
       }
+    },
+    switchToPWA() {
+      window.deferredPrompt.prompt()
     },
   },
 };

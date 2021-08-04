@@ -1,4 +1,5 @@
-import store from '../store';
+import { triggerCampaign } from 'widget/api/campaign';
+
 class CampaignTimer {
   constructor() {
     this.campaignTimers = [];
@@ -9,7 +10,7 @@ class CampaignTimer {
     campaigns.forEach(campaign => {
       const { timeOnPage, id: campaignId } = campaign;
       this.campaignTimers[campaignId] = setTimeout(() => {
-        store.dispatch('campaign/startCampaign', { campaignId });
+        triggerCampaign({ campaignId });
       }, timeOnPage * 1000);
     });
   };

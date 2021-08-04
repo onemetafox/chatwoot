@@ -129,7 +129,6 @@
     "CONVERSATIONS": "Conversații",
     "REPORTS": "Rapoarte",
     "CONTACTS": "Contacts",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "Setări",
     "HOME": "Acasa",
     "AGENTS": "Agenți",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "Setările contului",
     "APPLICATIONS": "Applications",
     "LABELS": "Etichete",
-    "TEAMS": "Teams",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "Teams"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "Cont Nou",

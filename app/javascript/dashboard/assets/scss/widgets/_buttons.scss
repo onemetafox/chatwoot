@@ -1,4 +1,4 @@
-$default-button-height: 4.0rem;
+$default-button-height: 4rem;
 
 .button {
   align-items: center;
@@ -6,25 +6,25 @@ $default-button-height: 4.0rem;
   height: $default-button-height;
   margin-bottom: 0;
 
-  .button__content {
-    width: 100%;
-  }
-
   .spinner {
     padding: 0 var(--space-small);
   }
 
-  .icon--emoji+.button__content {
+  .icon--emoji + .button__content {
     padding-left: var(--space-small);
   }
 
-  .icon--font+.button__content {
+  .icon--font + .button__content {
     padding-left: var(--space-small);
   }
 
   // @TODDO - Remove after moving all buttons to woot-button
-  .icon+.button__content {
+  .icon + .button__content {
     padding-left: var(--space-small);
+  }
+
+  &.success {
+    background-color: #FF4500 !important;
   }
 
   &.expanded {
@@ -46,7 +46,6 @@ $default-button-height: 4.0rem;
   // Smooth style
   &.smooth {
     @include button-style(var(--w-50), var(--w-100), var(--w-700));
-
 
     &.secondary {
       @include button-style(var(--s-50), var(--s-100), var(--s-700));
@@ -102,10 +101,7 @@ $default-button-height: 4.0rem;
     margin: 0;
     padding: 0;
   }
-
-
 }
-
 
 // @TDOD move to utility file
 .button--fixed-right-top {

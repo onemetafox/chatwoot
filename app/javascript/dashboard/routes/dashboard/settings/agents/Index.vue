@@ -11,7 +11,7 @@
 
     <!-- List Agents -->
     <div class="row">
-      <div class="small-8 columns with-right-space ">
+      <div class="small-8 columns">
         <woot-loading-state
           v-if="uiFlags.isFetching"
           :message="$t('AGENT_MGMT.LOADING')"
@@ -86,10 +86,9 @@
       <div class="small-4 columns">
         <span
           v-html="
-            useInstallationName(
-              $t('AGENT_MGMT.SIDEBAR_TXT'),
-              globalConfig.installationName
-            )
+            $t('AGENT_MGMT.SIDEBAR_TXT', {
+              projectName: globalConfig.installationName
+            })
           "
         />
       </div>

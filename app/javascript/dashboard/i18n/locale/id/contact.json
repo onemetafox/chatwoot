@@ -12,24 +12,29 @@
     "INITIATED_FROM": "Dimulai dari",
     "INITIATED_AT": "Dimulai pada",
     "IP_ADDRESS": "IP Address",
-    "NEW_MESSAGE": "Pesan baru",
+    "NEW_MESSAGE": "New message",
     "CONVERSATIONS": {
       "NO_RECORDS_FOUND": "Tidak ada percakapan sebelumnya yang terkait dengan kontak ini.",
       "TITLE": "Percakapan Sebelumnya"
     },
     "LABELS": {
-      "CONTACT": {
-        "TITLE": "Contact Labels",
-        "ERROR": "Couldn't update labels"
+      "TITLE": "Label Percakapan",
+      "MODAL": {
+        "TITLE": "Label untuk",
+        "ACTIVE_LABELS": "Label ditambahkan ke percakapan",
+        "INACTIVE_LABELS": "Label tersedia di akun",
+        "REMOVE": "Klik ikon X untuk menghapus label",
+        "ADD": "Klik ikon + untuk menambah label",
+        "ADD_BUTTON": "Add Labels",
+        "UPDATE_BUTTON": "Memperbaharui label",
+        "UPDATE_ERROR": "Tidak dapat memperbarui label, coba lagi."
       },
-      "CONVERSATION": {
-        "TITLE": "Label Percakapan",
-        "ADD_BUTTON": "Tambah label"
-      },
+      "NO_LABELS_TO_ADD": "Tidak ada lagi label yang ditentukan di akun.",
+      "NO_AVAILABLE_LABELS": "Tidak ada label yang ditambahkan ke percakapan ini.",
       "LABEL_SELECT": {
-        "TITLE": "Tambah label",
-        "PLACEHOLDER": "Cari label",
-        "NO_RESULT": "Tidak ada label"
+        "TITLE": "Add Labels",
+        "PLACEHOLDER": "Search labels",
+        "NO_RESULT": "No labels found"
       }
     },
     "MUTE_CONTACT": "Mute Percakapan",
@@ -106,27 +111,27 @@
     "ERROR_MESSAGE": "Terjadi kesalahan, harap coba lagi"
   },
   "NEW_CONVERSATION": {
-    "BUTTON_LABEL": "Mulai Percakapan",
+    "BUTTON_LABEL": "Start conversation",
     "TITLE": "Percakapan baru",
     "DESC": "Start a new conversation by sending a new message.",
     "NO_INBOX": "Couldn't find an inbox to initiate a new conversation with this contact.",
     "FORM": {
       "TO": {
-        "LABEL": "Ke"
+        "LABEL": "To"
       },
       "INBOX": {
-        "LABEL": "Kotak masuk",
-        "ERROR": "Pilih kotak masuk"
+        "LABEL": "Inbox",
+        "ERROR": "Select an inbox"
       },
       "MESSAGE": {
         "LABEL": "Pesan",
         "PLACEHOLDER": "Write your message here",
         "ERROR": "Message can't be empty"
       },
-      "SUBMIT": "Kirim pesan",
+      "SUBMIT": "Send message",
       "CANCEL": "Batalkan",
-      "SUCCESS_MESSAGE": "Pesan terkirim!",
-      "ERROR_MESSAGE": "Tidak dapat mengirim! coba lagi"
+      "SUCCESS_MESSAGE": "Message sent!",
+      "ERROR_MESSAGE": "Couldn't send! try again"
     }
   },
   "CONTACTS_PAGE": {
@@ -136,7 +141,6 @@
     "LIST": {
       "LOADING_MESSAGE": "Memuat kontak...",
       "404": "Tidak ada kontak yang cocok dengan pencarian Anda 🔍",
-      "NO_CONTACTS": "There are no available contacts",
       "TABLE_HEADER": {
         "NAME": "Nama",
         "PHONE_NUMBER": "Nomor Telpon",
@@ -151,37 +155,17 @@
       "VIEW_DETAILS": "Lihat detail"
     }
   },
-  "REMINDER": {
-    "ADD_BUTTON": {
-      "BUTTON": "Tambah",
-      "TITLE": "Shift + Enter to create a task"
-    },
-    "FOOTER": {
-      "DUE_DATE": "Due date",
-      "LABEL_TITLE": "Set type"
-    }
-  },
   "NOTES": {
     "HEADER": {
-      "TITLE": "Catatan"
+      "TITLE": "Notes"
     },
     "ADD": {
-      "BUTTON": "Tambah",
-      "PLACEHOLDER": "Tambahkan Catatan",
+      "BUTTON": "Add",
+      "PLACEHOLDER": "Add a note",
       "TITLE": "Shift + Enter to create a note"
     },
     "FOOTER": {
       "BUTTON": "View all notes"
-    }
-  },
-  "EVENTS": {
-    "HEADER": {
-      "TITLE": "Activities"
-    },
-    "BUTTON": {
-      "PILL_BUTTON_NOTES": "catatan",
-      "PILL_BUTTON_EVENTS": "events",
-      "PILL_BUTTON_CONVO": "percakapan"
     }
   },
   "CUSTOM_ATTRIBUTES": {

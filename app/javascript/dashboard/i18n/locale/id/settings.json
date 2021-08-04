@@ -129,7 +129,6 @@
     "CONVERSATIONS": "Percakapan",
     "REPORTS": "Laporan",
     "CONTACTS": "Kontak",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "Pengaturan",
     "HOME": "Home",
     "AGENTS": "Agen",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "Pengaturan Akun",
     "APPLICATIONS": "Applications",
     "LABELS": "Label",
-    "TEAMS": "Tim",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "Tim"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "Akun Baru",

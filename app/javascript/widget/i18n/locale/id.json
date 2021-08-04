@@ -10,7 +10,7 @@
   },
   "TEAM_AVAILABILITY": {
     "ONLINE": "Kami sedang online",
-    "OFFLINE": "Kami sedang tidak tersedia saat ini"
+    "OFFLINE": "We are away at the moment"
   },
   "REPLY_TIME": {
     "IN_A_FEW_MINUTES": "Biasanya membalas dalam beberapa menit",
@@ -21,13 +21,13 @@
   "UNREAD_VIEW": {
     "VIEW_MESSAGES_BUTTON": "Lihat pesan baru",
     "CLOSE_MESSAGES_BUTTON": "Tutup",
-    "COMPANY_FROM": "dari",
+    "COMPANY_FROM": "from",
     "BOT": "Bot"
   },
   "BUBBLE": {
     "LABEL": "Chat dengan kami"
   },
-  "POWERED_BY": "Powered by Chatwoot",
+  "POWERED_BY": "Powered by Abrand",
   "EMAIL_PLACEHOLDER": "Masukkan email Anda",
   "CHAT_PLACEHOLDER": "Ketik pesan Anda",
   "TODAY": "Hari ini",
@@ -51,15 +51,5 @@
       }
     }
   },
-  "FILE_SIZE_LIMIT": "File melebihi batas {MAXIMUM_FILE_UPLOAD_SIZE} lampiran",
-  "CHAT_FORM": {
-    "INVALID": {
-      "FIELD": "Invalid field"
-    }
-  },
-  "CSAT": {
-    "TITLE": "Rate your conversation",
-    "SUBMITTED_TITLE": "Thank you for submitting the rating",
-    "PLACEHOLDER": "Tell us more..."
-  }
+  "FILE_SIZE_LIMIT": "File exceeds the {MAXIMUM_FILE_UPLOAD_SIZE} attachment limit"
 }

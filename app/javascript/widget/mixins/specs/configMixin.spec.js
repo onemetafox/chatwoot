@@ -6,7 +6,6 @@ global.chatwootWebChannel = {
   avatarUrl: 'https://test.url',
   hasAConnectedAgentBot: 'AgentBot',
   enabledFeatures: ['emoji_picker', 'attachments'],
-  preChatFormOptions: { require_email: false, pre_chat_message: '' },
 };
 
 global.chatwootWidgetDefaults = {
@@ -32,14 +31,6 @@ describe('configMixin', () => {
       avatarUrl: 'https://test.url',
       hasAConnectedAgentBot: 'AgentBot',
       enabledFeatures: ['emoji_picker', 'attachments'],
-      preChatFormOptions: {
-        pre_chat_message: '',
-        require_email: false,
-      },
-    });
-    expect(wrapper.vm.preChatFormOptions).toEqual({
-      requireEmail: false,
-      preChatMessage: '',
     });
   });
 });

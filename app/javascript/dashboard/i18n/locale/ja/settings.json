@@ -129,7 +129,6 @@
     "CONVERSATIONS": "会話データ",
     "REPORTS": "レポート",
     "CONTACTS": "Contacts",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "設定",
     "HOME": "ホーム",
     "AGENTS": "担当者",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "アカウント設定",
     "APPLICATIONS": "Applications",
     "LABELS": "ラベル",
-    "TEAMS": "Teams",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "Teams"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "新規アカウント",

@@ -2,7 +2,7 @@
   <div class="column content-box">
     <!-- List Canned Response -->
     <div class="row">
-      <div class="small-8 columns with-right-space ">
+      <div class="small-8 columns">
         <p v-if="!inboxesList.length" class="no-items-error-message">
           {{ $t('INBOX_MGMT.LIST.404') }}
           <router-link
@@ -91,10 +91,9 @@
       <div class="small-4 columns">
         <span
           v-html="
-            useInstallationName(
-              $t('INBOX_MGMT.SIDEBAR_TXT'),
-              globalConfig.installationName
-            )
+            $t('INBOX_MGMT.SIDEBAR_TXT', {
+              projectName: globalConfig.installationName
+            })
           "
         />
       </div>

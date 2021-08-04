@@ -18,14 +18,19 @@
       "TITLE": "Vorige gesprekken"
     },
     "LABELS": {
-      "CONTACT": {
-        "TITLE": "Contact Labels",
-        "ERROR": "Couldn't update labels"
+      "TITLE": "Labels voor gesprekken",
+      "MODAL": {
+        "TITLE": "Labels voor",
+        "ACTIVE_LABELS": "Labels toegevoegd aan het gesprek",
+        "INACTIVE_LABELS": "Labels beschikbaar in het account",
+        "REMOVE": "Klik op het X-pictogram om het label te verwijderen",
+        "ADD": "Klik op + pictogram om het label toe te voegen",
+        "ADD_BUTTON": "Add Labels",
+        "UPDATE_BUTTON": "Labels bijwerken",
+        "UPDATE_ERROR": "Kon labels niet updaten, probeer het opnieuw."
       },
-      "CONVERSATION": {
-        "TITLE": "Labels voor gesprekken",
-        "ADD_BUTTON": "Add Labels"
-      },
+      "NO_LABELS_TO_ADD": "There are no more labels defined in the account.",
+      "NO_AVAILABLE_LABELS": "Er zijn geen labels toegevoegd aan dit gesprek.",
       "LABEL_SELECT": {
         "TITLE": "Add Labels",
         "PLACEHOLDER": "Search labels",
@@ -136,7 +141,6 @@
     "LIST": {
       "LOADING_MESSAGE": "Loading contacts...",
       "404": "No contacts matches your search 🔍",
-      "NO_CONTACTS": "There are no available contacts",
       "TABLE_HEADER": {
         "NAME": "Naam",
         "PHONE_NUMBER": "Phone Number",
@@ -151,16 +155,6 @@
       "VIEW_DETAILS": "View details"
     }
   },
-  "REMINDER": {
-    "ADD_BUTTON": {
-      "BUTTON": "Add",
-      "TITLE": "Shift + Enter to create a task"
-    },
-    "FOOTER": {
-      "DUE_DATE": "Due date",
-      "LABEL_TITLE": "Set type"
-    }
-  },
   "NOTES": {
     "HEADER": {
       "TITLE": "Notes"
@@ -172,16 +166,6 @@
     },
     "FOOTER": {
       "BUTTON": "View all notes"
-    }
-  },
-  "EVENTS": {
-    "HEADER": {
-      "TITLE": "Activities"
-    },
-    "BUTTON": {
-      "PILL_BUTTON_NOTES": "notes",
-      "PILL_BUTTON_EVENTS": "events",
-      "PILL_BUTTON_CONVO": "gesprekken"
     }
   },
   "CUSTOM_ATTRIBUTES": {

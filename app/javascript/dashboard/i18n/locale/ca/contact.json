@@ -18,14 +18,19 @@
       "TITLE": "Converses prèvies"
     },
     "LABELS": {
-      "CONTACT": {
-        "TITLE": "Contact Labels",
-        "ERROR": "Couldn't update labels"
+      "TITLE": "Etiquetes de converses",
+      "MODAL": {
+        "TITLE": "Etiquetes per a",
+        "ACTIVE_LABELS": "S'han afegit etiquetes a la conversa",
+        "INACTIVE_LABELS": "Etiquetes disponibles al compte",
+        "REMOVE": "Fes clic a la icona X per eliminar l'etiqueta",
+        "ADD": "Fes clic a la icona + per afegir l'etiqueta",
+        "ADD_BUTTON": "Add Labels",
+        "UPDATE_BUTTON": "Actualitza les etiquetes",
+        "UPDATE_ERROR": "No s'han pogut actualitzar les etiquetes, torna-ho a provar."
       },
-      "CONVERSATION": {
-        "TITLE": "Etiquetes de converses",
-        "ADD_BUTTON": "Add Labels"
-      },
+      "NO_LABELS_TO_ADD": "No hi ha cap etiqueta definida al compte.",
+      "NO_AVAILABLE_LABELS": "No hi ha etiquetes afegides a aquesta conversa.",
       "LABEL_SELECT": {
         "TITLE": "Add Labels",
         "PLACEHOLDER": "Search labels",
@@ -136,7 +141,6 @@
     "LIST": {
       "LOADING_MESSAGE": "Carregant contactes...",
       "404": "No hi ha cap contacte que coincideixi amb la vostra cerca 🔍",
-      "NO_CONTACTS": "There are no available contacts",
       "TABLE_HEADER": {
         "NAME": "Nom",
         "PHONE_NUMBER": "Número de telèfon",
@@ -151,16 +155,6 @@
       "VIEW_DETAILS": "View details"
     }
   },
-  "REMINDER": {
-    "ADD_BUTTON": {
-      "BUTTON": "Add",
-      "TITLE": "Shift + Enter to create a task"
-    },
-    "FOOTER": {
-      "DUE_DATE": "Due date",
-      "LABEL_TITLE": "Set type"
-    }
-  },
   "NOTES": {
     "HEADER": {
       "TITLE": "Notes"
@@ -172,16 +166,6 @@
     },
     "FOOTER": {
       "BUTTON": "View all notes"
-    }
-  },
-  "EVENTS": {
-    "HEADER": {
-      "TITLE": "Activities"
-    },
-    "BUTTON": {
-      "PILL_BUTTON_NOTES": "notes",
-      "PILL_BUTTON_EVENTS": "events",
-      "PILL_BUTTON_CONVO": "converses"
     }
   },
   "CUSTOM_ATTRIBUTES": {

@@ -27,7 +27,7 @@
   "BUBBLE": {
     "LABEL": "Chat med oss"
   },
-  "POWERED_BY": "Drevet av Chatwoot",
+  "POWERED_BY": "Drevet av Abrand",
   "EMAIL_PLACEHOLDER": "Skriv inn din e-post",
   "CHAT_PLACEHOLDER": "Skriv inn meldingen",
   "TODAY": "I dag",
@@ -56,10 +56,5 @@
     "INVALID": {
       "FIELD": "Invalid field"
     }
-  },
-  "CSAT": {
-    "TITLE": "Rate your conversation",
-    "SUBMITTED_TITLE": "Thank you for submitting the rating",
-    "PLACEHOLDER": "Tell us more..."
   }
 }

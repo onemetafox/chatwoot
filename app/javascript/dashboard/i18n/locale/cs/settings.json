@@ -129,7 +129,6 @@
     "CONVERSATIONS": "Konverzace",
     "REPORTS": "Zprávy",
     "CONTACTS": "Kontakty",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "Nastavení",
     "HOME": "Domů",
     "AGENTS": "Agenti",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "Nastavení účtu",
     "APPLICATIONS": "Applications",
     "LABELS": "Štítky",
-    "TEAMS": "Týmy",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "Týmy"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "Nový účet",

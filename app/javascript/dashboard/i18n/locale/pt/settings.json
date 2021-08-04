@@ -129,7 +129,6 @@
     "CONVERSATIONS": "Conversas",
     "REPORTS": "relatórios",
     "CONTACTS": "Contacts",
-    "MOONBOARD": "ContentBoards",
     "SETTINGS": "Confirgurações",
     "HOME": "Home",
     "AGENTS": "agentes",
@@ -140,9 +139,7 @@
     "ACCOUNT_SETTINGS": "Account Settings",
     "APPLICATIONS": "Applications",
     "LABELS": "Etiquetas",
-    "TEAMS": "Teams",
-    "ALL_CONTACTS": "All Contacts",
-    "TAGGED_WITH": "Tagged with"
+    "TEAMS": "Teams"
   },
   "CREATE_ACCOUNT": {
     "NEW_ACCOUNT": "New Account",

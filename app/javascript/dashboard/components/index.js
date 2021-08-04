@@ -1,5 +1,5 @@
 /* eslint no-plusplus: 0 */
-/* eslint-env browser */ 
+/* eslint-env browser */
 import AvatarUploader from './widgets/forms/AvatarUploader.vue';
 import Bar from './widgets/chart/BarChart';
 import Button from './ui/WootButton';

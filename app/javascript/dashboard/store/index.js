@@ -29,7 +29,6 @@ import teams from './modules/teams';
 import teamMembers from './modules/teamMembers';
 import campaigns from './modules/campaigns';
 import contactNotes from './modules/contactNotes';
-import moonboards from './modules/moonboards';
 
 Vue.use(Vuex);
 export default new Vuex.Store({
@@ -62,6 +61,5 @@ export default new Vuex.Store({
     teamMembers,
     campaigns,
     contactNotes,
-    moonboards,
   },
 });

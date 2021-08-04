@@ -1,7 +1,7 @@
 {
   "INBOX_MGMT": {
     "HEADER": "Caixas de Entrada",
-    "SIDEBAR_TXT": "<p><b>Caixa de entrada</b></p> <p> Quando você conectar um site ou uma página de Facebook ao Chatwoot, é chamado de <b>caixa de entrada</b>. Você pode ter caixas de entrada ilimitadas na sua conta de Chatwoot. </p><p> Clique em <b>Adicionar caixa de entrada</b> para conectar um site ou uma página do Facebook. </p><p> No Painel, você pode ver todas as conversas de todas as suas caixas de entrada em um único lugar e responder a elas sob a guia `Conversations`. </p><p> Você também pode ver conversas específicas para uma caixa de entrada clicando no nome da caixa de entrada no painel esquerdo do painel. </p>",
+    "SIDEBAR_TXT": "<p><b>Caixa de entrada</b></p> <p> Quando você conectar um site ou uma página de Facebook ao %{projectName}, é chamado de <b>caixa de entrada</b>. Você pode ter caixas de entrada ilimitadas na sua conta de %{projectName}. </p><p> Clique em <b>Adicionar caixa de entrada</b> para conectar um site ou uma página do Facebook. </p><p> No Painel, você pode ver todas as conversas de todas as suas caixas de entrada em um único lugar e responder a elas sob a guia `Conversations`. </p><p> Você também pode ver conversas específicas para uma caixa de entrada clicando no nome da caixa de entrada no painel esquerdo do painel. </p>",
     "LIST": {
       "404": "Não há caixas de entrada anexadas a esta conta."
     },
@@ -9,7 +9,7 @@
       {
         "title": "Escolha o canal",
         "route": "settings_inbox_new",
-        "body": "Escolha o provedor que você deseja integrar com o Chatwoot."
+        "body": "Escolha o provedor que você deseja integrar com o %{projectName}."
       },
       {
         "title": "Criar Caixa de Entrada",
@@ -28,16 +28,8 @@
       }
     ],
     "ADD": {
-      "CHANNEL_NAME": {
-        "LABEL": "Nome da Caixa de Entrada",
-        "PLACEHOLDER": "Digite o nome da caixa de entrada (ex: Acme Inc)"
-      },
-      "WEBSITE_NAME": {
-        "LABEL": "Nome do site",
-        "PLACEHOLDER": "Informe o nome do seu site (por exemplo: Acme Inc)"
-      },
       "FB": {
-        "HELP": "Obs: ao fazer login, apenas temos acesso às mensagens da sua página. Suas mensagens privadas nunca podem ser acessadas pelo Chatwoot.",
+        "HELP": "Obs: ao fazer login, apenas temos acesso às mensagens da sua página. Suas mensagens privadas nunca podem ser acessadas pelo %{projectName}.",
         "CHOOSE_PAGE": "Escolher Página",
         "CHOOSE_PLACEHOLDER": "Selecione uma página da lista",
         "INBOX_NAME": "Nome da Caixa de Entrada",
@@ -47,7 +39,7 @@
       },
       "TWITTER": {
         "HELP": "Para adicionar seu perfil do Twitter como um canal, você precisa autenticar seu perfil do Twitter clicando em 'Entrar com o Twitter' ",
-        "ERROR_MESSAGE": "Houve um erro ao conectar com o Twitter, por favor, tente novamente"
+        "ERROR_MESSAGE": "There was an error connecting to Twitter, please try again"
       },
       "WEBSITE_CHANNEL": {
         "TITLE": "Canal do website",
@@ -55,6 +47,10 @@
         "LOADING_MESSAGE": "Criando canal de suporte ao site",
         "CHANNEL_AVATAR": {
           "LABEL": "Imagem do Canal"
+        },
+        "CHANNEL_NAME": {
+          "LABEL": "Nome do website",
+          "PLACEHOLDER": "Informe o nome do seu site (por exemplo: Acme Inc)"
         },
         "CHANNEL_DOMAIN": {
           "LABEL": "Domínio do website",
@@ -176,11 +172,11 @@
       },
       "DETAILS": {
         "TITLE": "Detalhes da Caixa de Entrada",
-        "DESC": "No menu abaixo, selecione a Página do Facebook que você deseja se conectar ao Chatwoot. Você também pode dar um nome personalizado para sua caixa de entrada para uma melhor identificação."
+        "DESC": "No menu abaixo, selecione a Página do Facebook que você deseja se conectar ao %{projectName}. Você também pode dar um nome personalizado para sua caixa de entrada para uma melhor identificação."
       },
       "FINISH": {
         "TITLE": "Tudo funcionando. Deu certo!",
-        "DESC": "Você concluiu a integração da sua página do Facebook com o Chatwoot. Na próxima vez que um cliente enviar uma mensagem para sua página, a conversa aparecerá automaticamente na sua caixa de entrada. <br> Também estamos fornecendo um script de widget que você pode adicionar facilmente ao seu site. Assim que estiver disponível no seu site, os clientes poderão enviar mensagens diretamente do seu site, sem a ajuda de nenhuma ferramenta externa, e a conversa aparecerá aqui, no Chatwoot. Legal, hein? Com certeza estamos tentamos ser :)"
+        "DESC": "Você concluiu a integração da sua página do Facebook com o %{projectName}. Na próxima vez que um cliente enviar uma mensagem para sua página, a conversa aparecerá automaticamente na sua caixa de entrada. <br> Também estamos fornecendo um script de widget que você pode adicionar facilmente ao seu site. Assim que estiver disponível no seu site, os clientes poderão enviar mensagens diretamente do seu site, sem a ajuda de nenhuma ferramenta externa, e a conversa aparecerá aqui, no %{projectName}. Legal, hein? Com certeza estamos tentamos ser :)"
       }
     },
     "DETAILS": {
@@ -212,10 +208,6 @@
       "AUTO_ASSIGNMENT": {
         "ENABLED": "Ativado",
         "DISABLED": "Desativado"
-      },
-      "EMAIL_COLLECT_BOX": {
-        "ENABLED": "Ativado",
-        "DISABLED": "Desativado"
       }
     },
     "DELETE": {
@@ -223,7 +215,6 @@
       "CONFIRM": {
         "TITLE": "Confirmar exclusão",
         "MESSAGE": "Você tem certeza que deseja excluir ",
-        "PLACE_HOLDER": "Digite {inboxName} para confirmar",
         "YES": "Sim, excluir ",
         "NO": "Não, Mantenha "
       },
@@ -236,8 +227,8 @@
       "SETTINGS": "Configurações",
       "COLLABORATORS": "Colaboradores",
       "CONFIGURATION": "Configuração",
-      "CAMPAIGN": "Campanhas",
-      "PRE_CHAT_FORM": "Formulário Chat Pré",
+      "CAMPAIGN": "Campaigns",
+      "PRE_CHAT_FORM": "Pre Chat Form",
       "BUSINESS_HOURS": "Horário de funcionamento"
     },
     "SETTINGS": "Confirgurações",
@@ -252,8 +243,6 @@
       "INBOX_AGENTS": "Agentes",
       "INBOX_AGENTS_SUB_TEXT": "Adicionar ou remover agentes dessa caixa de entrada",
       "UPDATE": "Atualizar",
-      "ENABLE_EMAIL_COLLECT_BOX": "Ativar caixa de coleta de e-mail",
-      "ENABLE_EMAIL_COLLECT_BOX_SUB_TEXT": "Ativar ou desativar caixa de coleta de e-mails em novas conversas",
       "AUTO_ASSIGNMENT": "Habilitar atribuição automática",
       "INBOX_UPDATE_TITLE": "Configurações da Caixa de entrada",
       "INBOX_UPDATE_SUB_TEXT": "Atualize suas configurações de caixa de entrada",
@@ -268,32 +257,32 @@
       "MESSAGE_ERROR": "Ocorreu um erro, por favor tente novamente"
     },
     "PRE_CHAT_FORM": {
-      "DESCRIPTION": "Formulários de bate-papo permitem que você capture informações de usuário antes de iniciar uma conversa com você.",
+      "DESCRIPTION": "Pre chat forms enable you to capture user information before they start conversation with you.",
       "ENABLE": {
-        "LABEL": "Ativar formulário de bate-papo antes",
+        "LABEL": "Enable pre chat form",
         "OPTIONS": {
           "ENABLED": "Sim",
           "DISABLED": "Não"
         }
       },
       "PRE_CHAT_MESSAGE": {
-        "LABEL": "Pré Mensagem de bate-papo",
-        "PLACEHOLDER": "Esta mensagem será visível para os usuários junto com o formulário"
+        "LABEL": "Pre Chat Message",
+        "PLACEHOLDER": "This message would be visible to the users along with the form"
       },
       "REQUIRE_EMAIL": {
-        "LABEL": "Os visitantes devem fornecer seu nome e endereço de e-mail antes de iniciar o bate-papo"
+        "LABEL": "Visitors should provide their name and email address before starting the chat"
       }
     },
     "BUSINESS_HOURS": {
       "TITLE": "Definir a sua disponibilidade",
-      "SUBTITLE": "Defina a sua disponibilidade no widget livechat",
+      "SUBTITLE": "Set your availability on your livechat widget",
       "WEEKLY_TITLE": "Definir horas semanais",
       "TIMEZONE_LABEL": "Selecionar fuso horário",
       "UPDATE": "Atualizar configurações do horário comercial",
-      "TOGGLE_AVAILABILITY": "Permitir a disponibilidade de negócios para essa caixa de entrada",
+      "TOGGLE_AVAILABILITY": "Enable business availability for this inbox",
       "UNAVAILABLE_MESSAGE_LABEL": "Mensagem indisponível para vistores",
       "UNAVAILABLE_MESSAGE_DEFAULT": "Nós estamos indisponíveis no momento. Deixe uma mensagem a ser respondida assim que voltarmos.",
-      "TOGGLE_HELP": "Permitir a disponibilidade de negócios mostrará as horas disponíveis no widget de bate-papo ao vivo, mesmo que todos os agentes estejam offline. Os vistores disponíveis horários externos podem ser avisados com uma mensagem e um formulário de pré-bate-papo.",
+      "TOGGLE_HELP": "Enabling business availability will show the available hours on live chat widget even if all the agents are offline. Outside available hours vistors can be warned with a message and a pre-chat form.",
       "DAY": {
         "ENABLE": "Permitir a disponibilidade para este dia",
         "UNAVAILABLE": "Indisponível",

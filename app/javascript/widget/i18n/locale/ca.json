@@ -27,7 +27,7 @@
   "BUBBLE": {
     "LABEL": "Xateja amb nosaltres"
   },
-  "POWERED_BY": "Desenvolupat per Chatwoot",
+  "POWERED_BY": "Desenvolupat per Abrand",
   "EMAIL_PLACEHOLDER": "Introduïu el correu electrònic",
   "CHAT_PLACEHOLDER": "Escriu el missatge",
   "TODAY": "Avui",
@@ -56,10 +56,5 @@
     "INVALID": {
       "FIELD": "Invalid field"
     }
-  },
-  "CSAT": {
-    "TITLE": "Rate your conversation",
-    "SUBMITTED_TITLE": "Thank you for submitting the rating",
-    "PLACEHOLDER": "Tell us more..."
   }
 }

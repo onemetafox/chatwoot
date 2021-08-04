@@ -1,7 +1,7 @@
 {
   "INBOX_MGMT": {
     "HEADER": "收件匣",
-    "SIDEBAR_TXT": "<p><b>收件匣</b></p> <p> 當您將網站或 Facebook 頁面連接到 Chatwoot 它被稱為一個 <b>收件匣</b>。 您可以在Chatwoot 帳戶中擁有無限的收件匣。 </p><p> 點擊 <b>建立收件匣</b> 連接網站或 Facebook 頁面。 </p><p> 在儀表板中 您可以在一個地方看到所有收件匣中的所有對話，並在“對話”選項卡下回覆。 </p><p> 您也可以通過點擊儀表板左側面板上的收件匣名稱看到該收件匣的對話。 </p>",
+    "SIDEBAR_TXT": "<p><b>收件匣</b></p> <p> 當您將網站或 Facebook 頁面連接到 %{projectName} 它被稱為一個 <b>收件匣</b>。 您可以在Chatwoot 帳戶中擁有無限的收件匣。 </p><p> 點擊 <b>建立收件匣</b> 連接網站或 Facebook 頁面。 </p><p> 在儀表板中 您可以在一個地方看到所有收件匣中的所有對話，並在“對話”選項卡下回覆。 </p><p> 您也可以通過點擊儀表板左側面板上的收件匣名稱看到該收件匣的對話。 </p>",
     "LIST": {
       "404": "此帳戶没有收件匣。"
     },
@@ -9,7 +9,7 @@
       {
         "title": "選擇頻道",
         "route": "settings_inbox_new",
-        "body": "選擇你想要與 Chatwoot 整合的提供商。"
+        "body": "選擇你想要與 %{projectName} 整合的提供商。"
       },
       {
         "title": "新增收件匣",
@@ -28,14 +28,6 @@
       }
     ],
     "ADD": {
-      "CHANNEL_NAME": {
-        "LABEL": "收件匣名稱",
-        "PLACEHOLDER": "Enter your inbox name (eg: Acme Inc)"
-      },
-      "WEBSITE_NAME": {
-        "LABEL": "網站名稱",
-        "PLACEHOLDER": "輸入您的網站名稱 (e.g: Acme Inc)"
-      },
       "FB": {
         "HELP": "注意: 通過登入，我們只能訪問您的頁面的消息。您的私人消息永遠不能被聊天室訪問。",
         "CHOOSE_PAGE": "選擇頁面",
@@ -55,6 +47,10 @@
         "LOADING_MESSAGE": "建立網站支持頻道",
         "CHANNEL_AVATAR": {
           "LABEL": "頻道頭像"
+        },
+        "CHANNEL_NAME": {
+          "LABEL": "網站名稱",
+          "PLACEHOLDER": "輸入您的網站名稱 (e.g: Acme Inc)"
         },
         "CHANNEL_DOMAIN": {
           "LABEL": "網站域名",
@@ -83,7 +79,7 @@
           "IN_A_FEW_MINUTES": "幾分鐘內",
           "IN_A_FEW_HOURS": "幾小時內",
           "IN_A_DAY": "一天內",
-          "HELP_TEXT": "此回覆時間將會顯示在 live chat 小工具"
+          "HELP_TEXT": "This reply time will be displayed on the live chat widget"
         },
         "WIDGET_COLOR": {
           "LABEL": "視窗小元件顏色",
@@ -171,8 +167,8 @@
       "AGENTS": {
         "TITLE": "客服",
         "DESC": "在這裡您可以建立客服來管理您新建立的收件匣。只有這些選定的客服才能訪問您的收件匣。 不屬於此收件匣的客服在登入時將無法看到或回覆此收件匣中的消息。 <br> <b>PS：</b> 作為管理員，如果您需要訪問所有收件匣， 您應該將自己建立到您建立的所有收件匣中。",
-        "VALIDATION_ERROR": "新增至少一位客服到新的收件匣",
-        "PICK_AGENTS": "為收件匣挑選一些客服"
+        "VALIDATION_ERROR": "Add atleast one agent to your new Inbox",
+        "PICK_AGENTS": "Pick agents for the inbox"
       },
       "DETAILS": {
         "TITLE": "收件匣詳細資訊",
@@ -180,7 +176,7 @@
       },
       "FINISH": {
         "TITLE": "做得漂亮！",
-        "DESC": "您已成功地將您的 Facebook 頁面與 Chatwoot 整合。下次客户發送消息到您的頁面時，對話將自動出現在收件匣中。<br>我們還為您提供了一個小元件脚本，您可以輕鬆地建立到您的網站。 在您的網站上登入後， 客户可以在没有任何外部工具幫助的情况下，從您的網站向您發送消息，對話將會在這裡出現在 Chatwoot 上。<br>酷，對吧？好吧，我們很肯定 :)"
+        "DESC": "您已成功地將您的 Facebook 頁面與 %{projectName} 整合。下次客户發送消息到您的頁面時，對話將自動出現在收件匣中。<br>我們還為您提供了一個小元件脚本，您可以輕鬆地建立到您的網站。 在您的網站上登入後， 客户可以在没有任何外部工具幫助的情况下，從您的網站向您發送消息，對話將會在這裡出現在 %{projectName} 上。<br>酷，對吧？好吧，我們很肯定 :)"
       }
     },
     "DETAILS": {
@@ -212,10 +208,6 @@
       "AUTO_ASSIGNMENT": {
         "ENABLED": "已啟用",
         "DISABLED": "已停用"
-      },
-      "EMAIL_COLLECT_BOX": {
-        "ENABLED": "已啟用",
-        "DISABLED": "已停用"
       }
     },
     "DELETE": {
@@ -223,7 +215,6 @@
       "CONFIRM": {
         "TITLE": "確認刪除",
         "MESSAGE": "您確定要刪除吗？ ",
-        "PLACE_HOLDER": "Please type {inboxName} to confirm",
         "YES": "是，刪除 ",
         "NO": "不，保留 "
       },
@@ -238,7 +229,7 @@
       "CONFIGURATION": "組態",
       "CAMPAIGN": "Campaigns",
       "PRE_CHAT_FORM": "Pre Chat Form",
-      "BUSINESS_HOURS": "服務時間"
+      "BUSINESS_HOURS": "營業時間"
     },
     "SETTINGS": "設定",
     "FEATURES": {
@@ -249,16 +240,14 @@
     "SETTINGS_POPUP": {
       "MESSENGER_HEADING": "Messenger 脚本",
       "MESSENGER_SUB_HEAD": "將此按鈕放置在視窗標籤中",
-      "INBOX_AGENTS": "客服",
+      "INBOX_AGENTS": "客服代理們",
       "INBOX_AGENTS_SUB_TEXT": "建立或刪除此收件匣中的客服",
       "UPDATE": "更新",
-      "ENABLE_EMAIL_COLLECT_BOX": "Enable email collect box",
-      "ENABLE_EMAIL_COLLECT_BOX_SUB_TEXT": "Enable or disable email collect box on new conversation",
       "AUTO_ASSIGNMENT": "啟用自動分配",
       "INBOX_UPDATE_TITLE": "收件匣設定",
       "INBOX_UPDATE_SUB_TEXT": "更新收件匣設定",
       "AUTO_ASSIGNMENT_SUB_TEXT": "啟用或停用此收件匣客服的對話自動分配。",
-      "HMAC_VERIFICATION": "使用者身份驗證",
+      "HMAC_VERIFICATION": "User Identity Validation",
       "HMAC_DESCRIPTION": "Inorder validate the users identity, the SDK allows you to pass an `identity_hash` for each user. You can generate HMAC using 'sha256' with the key shown here."
     },
     "FACEBOOK_REAUTHORIZE": {
@@ -285,21 +274,21 @@
       }
     },
     "BUSINESS_HOURS": {
-      "TITLE": "設定你的服務時間",
-      "SUBTITLE": "為你的 livechat 小工具設定服務時間",
+      "TITLE": "Set your availability",
+      "SUBTITLE": "Set your availability on your livechat widget",
       "WEEKLY_TITLE": "Set your weekly hours",
       "TIMEZONE_LABEL": "選擇時區",
-      "UPDATE": "更新服務時間設定",
-      "TOGGLE_AVAILABILITY": "啟用收件匣可用服務時間",
-      "UNAVAILABLE_MESSAGE_LABEL": "非服務時間給訪客的訊息",
-      "UNAVAILABLE_MESSAGE_DEFAULT": "我們現在無法回覆您的訊息。請留言，我們會盡快聯絡您。",
-      "TOGGLE_HELP": "啟用服務時間將會在 live chat 小工具上顯示你的服務時間，就算所有客服都不在線上。若不在服務時間內，訪客將會被提醒及傳送 pre-chat 表單",
+      "UPDATE": "Update business hours settings",
+      "TOGGLE_AVAILABILITY": "Enable business availability for this inbox",
+      "UNAVAILABLE_MESSAGE_LABEL": "Unavailable message for vistors",
+      "UNAVAILABLE_MESSAGE_DEFAULT": "We are unavailable at the moment. Leave a message we will respond once we are back.",
+      "TOGGLE_HELP": "Enabling business availability will show the available hours on live chat widget even if all the agents are offline. Outside available hours vistors can be warned with a message and a pre-chat form.",
       "DAY": {
         "ENABLE": "Enable availability for this day",
         "UNAVAILABLE": "無法使用",
         "HOURS": "hours",
-        "VALIDATION_ERROR": "開始時間必須在關閉時間之前",
-        "CHOOSE": "選擇"
+        "VALIDATION_ERROR": "Starting time should be before closing time.",
+        "CHOOSE": "Choose"
       }
     }
   }

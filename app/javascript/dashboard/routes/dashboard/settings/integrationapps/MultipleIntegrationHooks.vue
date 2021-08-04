@@ -1,6 +1,6 @@
 <template>
   <div class="row ">
-    <div class="small-8 columns with-right-space ">
+    <div class="small-8 columns">
       <table v-if="hasConnectedHooks" class="woot-table">
         <thead>
           <th v-for="hookHeader in hookHeaders" :key="hookHeader">
