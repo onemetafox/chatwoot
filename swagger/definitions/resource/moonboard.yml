@@ -1,0 +1,11 @@
+type: object
+properties:
+  id:
+    type: number
+    description: The ID of the moonboard
+  title:
+    type: string
+    description: The title of the moonboard
+  account_id:
+    type: number
+    description: The ID of the account with the moonboard is a part of

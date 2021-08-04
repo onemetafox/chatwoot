@@ -1,0 +1,2 @@
+module MoonboardsHelper
+end

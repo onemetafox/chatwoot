@@ -1,0 +1,85 @@
+{
+  "INTEGRATION_SETTINGS": {
+    "HEADER": "Integrationen",
+    "WEBHOOK": {
+      "TITLE": "Webhook",
+      "CONFIGURE": "Konfigurieren",
+      "HEADER": "Webhook-Einstellungen",
+      "HEADER_BTN_TXT": "Neuen Webhook hinzufügen",
+      "LOADING": "Angehängte Webhooks abrufen",
+      "SEARCH_404": "Es gibt keine Elemente, die dieser Abfrage entsprechen",
+      "SIDEBAR_TXT": "<p> <b> Webhooks </b> </p> <p> Webhooks sind HTTP-Rückrufe, die für jedes Konto definiert werden können. Sie werden durch Ereignisse wie die Erstellung von Nachrichten in Chatwoot ausgelöst. Sie können mehr als einen Webhook für dieses Konto erstellen. <br /> <br /> Um einen <b> Webhook </b> zu erstellen, klicken Sie auf die Schaltfläche <b> Neuen Webhook hinzufügen </b>. Sie können auch vorhandene Webhooks entfernen, indem Sie auf die Schaltfläche Löschen klicken. </p>",
+      "LIST": {
+        "404": "Für dieses Konto sind keine Webhooks konfiguriert.",
+        "TITLE": "Webhooks verwalten",
+        "TABLE_HEADER": [
+          "Webhook-Endpunkt",
+          "Aktionen"
+        ]
+      },
+      "EDIT": {
+        "BUTTON_TEXT": "Bearbeiten",
+        "TITLE": "Webhook bearbeiten",
+        "CANCEL": "Stornieren",
+        "DESC": "Webhook-Ereignisse bieten Ihnen Echtzeitinformationen darüber, was in Ihrem Chatwoot-Konto passiert. Bitte geben Sie eine gültige URL ein, um einen Rückruf zu konfigurieren.",
+        "FORM": {
+          "END_POINT": {
+            "LABEL": "Webhook-URL",
+            "PLACEHOLDER": "Beispiel: https://example/api/webhook",
+            "ERROR": "Bitte geben Sie eine gültige URL ein"
+          },
+          "SUBMIT": "Webhook bearbeiten"
+        },
+        "API": {
+          "SUCCESS_MESSAGE": "Webhook URL erfolgreich aktualisiert",
+          "ERROR_MESSAGE": "Es konnte keine Verbindung zum Woot Server hergestellt werden. Bitte versuchen Sie es später erneut"
+        }
+      },
+      "ADD": {
+        "CANCEL": "Stornieren",
+        "TITLE": "Neuen Webhook hinzufügen",
+        "DESC": "Webhook-Ereignisse bieten Ihnen Echtzeitinformationen darüber, was in Ihrem Chatwoot-Konto passiert. Bitte geben Sie eine gültige URL ein, um einen Rückruf zu konfigurieren.",
+        "FORM": {
+          "END_POINT": {
+            "LABEL": "Webhook-URL",
+            "PLACEHOLDER": "Beispiel: https://example/api/webhook",
+            "ERROR": "Bitte geben Sie eine gültige URL ein"
+          },
+          "SUBMIT": "Webhook erstellen"
+        },
+        "API": {
+          "SUCCESS_MESSAGE": "Webhook erfolgreich hinzugefügt",
+          "ERROR_MESSAGE": "Es konnte keine Verbindung zum Woot Server hergestellt werden. Bitte versuchen Sie es später erneut"
+        }
+      },
+      "DELETE": {
+        "BUTTON_TEXT": "Löschen",
+        "API": {
+          "SUCCESS_MESSAGE": "Webhook erfolgreich gelöscht",
+          "ERROR_MESSAGE": "Es konnte keine Verbindung zum Woot Server hergestellt werden. Bitte versuchen Sie es später erneut"
+        },
+        "CONFIRM": {
+          "TITLE": "Löschung bestätigen",
+          "MESSAGE": "Bist du sicher, das du das löschen möchtest",
+          "YES": "Ja, löschen ",
+          "NO": "Nein, behalte es"
+        }
+      }
+    },
+    "SLACK": {
+      "HELP_TEXT": {
+        "TITLE": "Using Slack Integration",
+        "BODY": "<br/><p>Chatwoot will now sync all the incoming conversations into the <b><i>customer-conversations</i></b> channel inside your slack workplace.</p><p>Replying to a conversation thread in <b><i>customer-conversations</i></b> slack channel will create a response back to the customer through chatwoot.</p><p>Start the replies with <b><i>note:</i></b> to create private notes instead of replies.</p><p>If the replier on slack has an agent profile in chatwoot under the same email, the replies will be associated accordingly.</p><p>When the replier doesn't have an associated agent profile, the replies will be made from the bot profile.</p>"
+      }
+    },
+    "DELETE": {
+      "BUTTON_TEXT": "Löschen",
+      "API": {
+        "SUCCESS_MESSAGE": "Integration erfolgreich gelöscht"
+      }
+    },
+    "CONNECT": {
+      "BUTTON_TEXT": "Verbinden"
+    }
+  }
+}
