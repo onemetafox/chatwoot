@@ -1,27 +1,28 @@
 <template>
   <div class="column content-box">
-    <woot-button
-      color-scheme="success"
-      class-names="button--fixed-right-top"
-      icon="ion-android-download"
-      @click="downloadAgentReports"
-    >
-      {{ $t('REPORT.DOWNLOAD_AGENT_REPORTS') }}
-    </woot-button>
-    <div class="small-3 pull-right">
-      <multiselect
-        v-model="currentDateRangeSelection"
-        track-by="name"
-        label="name"
-        :placeholder="$t('FORMS.MULTISELECT.SELECT_ONE')"
-        selected-label
-        :select-label="$t('FORMS.MULTISELECT.ENTER_TO_SELECT')"
-        :deselect-label="$t('FORMS.MULTISELECT.ENTER_TO_REMOVE')"
-        :options="dateRange"
-        :searchable="false"
-        :allow-empty="true"
-        @select="changeDateSelection"
-      />
+    <div class="d-flex justify-content-between align-baseline">
+      <div class="small-5">
+        <multiselect
+          v-model="currentDateRangeSelection"
+          track-by="name"
+          label="name"
+          :placeholder="$t('FORMS.MULTISELECT.SELECT_ONE')"
+          selected-label
+          :select-label="$t('FORMS.MULTISELECT.ENTER_TO_SELECT')"
+          :deselect-label="$t('FORMS.MULTISELECT.ENTER_TO_REMOVE')"
+          :options="dateRange"
+          :searchable="false"
+          :allow-empty="true"
+          @select="changeDateSelection"
+        />
+      </div>
+      <woot-button
+        color-scheme="success"
+        icon="ion-android-download"
+        @click="downloadAgentReports"
+      >
+        {{ $t('REPORT.DOWNLOAD_AGENT_REPORTS') }}
+      </woot-button>
     </div>
     <div class="row">
       <woot-report-stats-card

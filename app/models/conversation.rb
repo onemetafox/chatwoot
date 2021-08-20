@@ -31,6 +31,7 @@
 #
 # Foreign Keys
 #
+#  fk_rails_...  (campaign_id => campaigns.id)
 #  fk_rails_...  (contact_inbox_id => contact_inboxes.id)
 #  fk_rails_...  (team_id => teams.id)
 #
@@ -59,7 +60,6 @@ class Conversation < ApplicationRecord
   belongs_to :campaign, optional: true
 
   has_many :messages, dependent: :destroy, autosave: true
-  has_one :csat_survey_response, dependent: :destroy
 
   before_create :set_bot_conversation
 

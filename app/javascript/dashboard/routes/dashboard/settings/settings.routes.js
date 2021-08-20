@@ -10,7 +10,9 @@ import profile from './profile/profile.routes';
 import reports from './reports/reports.routes';
 import teams from './teams/teams.routes';
 import store from '../../../store';
+import tags from './tags/tags.routes';
 import post from './posts/post.routes';
+import groups from './groups/groups.routes';
 
 export default {
   routes: [
@@ -36,5 +38,7 @@ export default {
     ...teams.routes,
     ...integrationapps.routes,
     ...post.routes,
+    ...tags.routes,
+    ...groups.routes
   ],
 };

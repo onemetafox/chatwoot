@@ -5,7 +5,7 @@
 # Fat Free CRM is freely distributable under the terms of MIT license.
 # See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
-class Api::Entities::LeadsController < Api::EntitiesController
+class Api::V3::Entities::LeadsController < Api::V3::EntitiesController
   # before_action :get_data_for_sidebar, only: :index
   # autocomplete :account, :name, full: true
 
@@ -18,9 +18,11 @@ class Api::Entities::LeadsController < Api::EntitiesController
 
   # GET /leads/1
   def show
-    @comment = Comment.new
-    @timeline = timeline(@lead)
-    respond_with(@lead)
+    # @comment = Comment.new
+    # @timeline = timeline(@lead)
+    # respond_with(@lead)
+    @lead = Lead.find(params[:id])
+    render json: {data: @lead.to_json(include: [:assignee, :campaign, :addresses]), success: true}, status: 200
   end
 
   # GET /leads/new
@@ -57,9 +59,9 @@ class Api::Entities::LeadsController < Api::EntitiesController
   def create
     # get_campaigns
     @comment_body = params[:comment_body]
-
+    @lead = Lead.new
     if @lead.save_with_permissions(params.permit!)
-      @lead.add_comment_by_user(@comment_body, current_user)
+      # @lead.add_comment_by_user(@comment_body, current_user)
       @leads = get_leads
       render json: {data: @lead, success: true}, status: 200
     else
@@ -72,6 +74,7 @@ class Api::Entities::LeadsController < Api::EntitiesController
   #----------------------------------------------------------------------------
   def update
     # Must set access before user_ids, because user_ids= method depends on access value.
+    @lead = Lead.find(params[:id])
     @lead.access = resource_params[:access] if resource_params[:access]
     if @lead.update_with_lead_counters(resource_params)
     else
@@ -86,7 +89,9 @@ class Api::Entities::LeadsController < Api::EntitiesController
 
   # DELETE /leads/1
   #----------------------------------------------------------------------------
-  def delete
+  def destroy
+    @lead = Lead.find(params[:id])
+    puts @lead
     if @lead.destroy
       render json: {data: @lead.to_json, success: true}, status: 200
     else
@@ -98,8 +103,9 @@ class Api::Entities::LeadsController < Api::EntitiesController
   # POST /leads/1/convert
   #----------------------------------------------------------------------------
   def convert
+    @lead = Lead.find(params[:id])
     @account = Account.new(user: current_user, name: @lead.company, access: "Lead")
-    @accounts = Account.my(current_user).order('name')
+    # @accounts = Account.my(current_user).order('name')
     @opportunity = Opportunity.new(user: current_user, access: "Lead", stage: "prospecting", campaign: @lead.campaign, source: @lead.source)
 
     render json: {account: @account.to_json, accounts: @accounts.to_json, opportunity: @opportunity.to_json, success: true}, status:200
@@ -107,12 +113,13 @@ class Api::Entities::LeadsController < Api::EntitiesController
 
 
   def promote
+    @lead = Lead.find(params[:id]);
     @account, @opportunity, @contact = @lead.promote(params.permit!)
-    @accounts = Account.my(current_user).order('name')
+    # @accounts = Account.my(current_user).order('name')
     @stage = Setting.unroll(:opportunity_stage)
 
       if @account.errors.empty? && @opportunity.errors.empty? && @contact.errors.empty?
-        
+
         if @lead.convert
           render json: {data: $lead.to_json, success: true}, status: 200
         else
@@ -127,13 +134,14 @@ class Api::Entities::LeadsController < Api::EntitiesController
   # POST /leads/1/reject
   #----------------------------------------------------------------------------
   def reject
+    @lead = Lead.find(params[:id])
     if @lead.reject
       render json: {data: @lead.to_json, success: true}, status: 200
     else
       render json: {data: @lead.errors.to_json, success: false}, status: 500
     end
   end
-  
+
   # GET /leads/redraw                                                      AJAX
   #----------------------------------------------------------------------------
   def redraw
@@ -182,7 +190,7 @@ class Api::Entities::LeadsController < Api::EntitiesController
 
     scope = Lead.text_search(params[:query])
     scope = scope.merge(@search.result)
-    scope = scope.text_search(current_query)      if current_query.present?
+    # scope = scope.text_search(current_query)      if current_query.present?
     scope = scope.paginate(page: current_page)
     scope
   end
@@ -194,6 +202,7 @@ class Api::Entities::LeadsController < Api::EntitiesController
 
   #----------------------------------------------------------------------------
   def get_campaigns
+    puts Campaign
     @campaigns = Campaign.my(current_user).order('name')
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_06_201614) do
+ActiveRecord::Schema.define(version: 2021_08_10_193747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -21,27 +21,26 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.string "owner_type"
     t.bigint "owner_id"
     t.string "token"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["owner_type", "owner_id"], name: "index_access_tokens_on_owner_type_and_owner_id"
     t.index ["token"], name: "index_access_tokens_on_token", unique: true
   end
 
-  create_table "account_contacts", force: :cascade do |t|
+  create_table "account_contacts", id: :serial, force: :cascade do |t|
     t.integer "account_id"
     t.integer "contact_id"
     t.datetime "deleted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["account_id", "contact_id"], name: "index_account_contacts_on_account_id_and_contact_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "account_opportunities", force: :cascade do |t|
+  create_table "account_opportunities", id: :serial, force: :cascade do |t|
     t.integer "account_id"
     t.integer "opportunity_id"
     t.datetime "deleted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["account_id", "opportunity_id"], name: "index_account_opportunities_on_account_id_and_opportunity_id"
   end
 
@@ -50,8 +49,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.bigint "user_id"
     t.integer "role", default: 0
     t.bigint "inviter_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.datetime "active_at"
     t.index ["account_id", "user_id"], name: "uniq_user_id_per_account_id", unique: true
     t.index ["account_id"], name: "index_account_users_on_account_id"
@@ -59,12 +58,19 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
   end
 
   create_table "accounts", id: :serial, force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "locale", default: 0
     t.string "domain", limit: 100
     t.string "support_email", limit: 100
     t.integer "settings_flags", default: 0, null: false
     t.integer "feature_flags", default: 0, null: false
     t.integer "auto_resolve_duration"
+    t.bigint "users_id"
+    t.integer "rating", default: 0, null: false
+    t.string "category", limit: 32
+    t.text "subscribed_users"
+    t.string "uuid"
     t.integer "user_id"
     t.integer "assigned_to"
     t.string "name", limit: 64, default: "", null: false
@@ -74,25 +80,21 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.string "phone", limit: 32
     t.string "fax", limit: 32
     t.datetime "deleted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string "email", limit: 254
     t.string "background_info"
-    t.integer "rating", default: 0, null: false
-    t.string "category", limit: 32
-    t.text "subscribed_users"
     t.integer "contacts_count", default: 0
     t.integer "opportunities_count", default: 0
     t.index ["assigned_to"], name: "index_accounts_on_assigned_to"
     t.index ["user_id", "name", "deleted_at"], name: "index_accounts_on_user_id_and_name_and_deleted_at", unique: true
+    t.index ["users_id"], name: "index_accounts_on_users_id"
   end
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
     t.string "message_id", null: false
     t.string "message_checksum", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["message_id", "message_checksum"], name: "index_action_mailbox_inbound_emails_uniqueness", unique: true
   end
 
@@ -114,23 +116,30 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.bigint "byte_size", null: false
     t.string "checksum", null: false
     t.datetime "created_at", null: false
+    t.string "service_name", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "activities", force: :cascade do |t|
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "activities", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.string "subject_type"
     t.integer "subject_id"
     t.string "action", limit: 32, default: "created"
     t.string "info", default: ""
     t.boolean "private", default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["created_at"], name: "index_activities_on_created_at"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
-  create_table "addresses", force: :cascade do |t|
+  create_table "addresses", id: :serial, force: :cascade do |t|
     t.string "street1"
     t.string "street2"
     t.string "city", limit: 64
@@ -141,8 +150,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.string "address_type", limit: 16
     t.string "addressable_type"
     t.integer "addressable_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.index ["addressable_id", "addressable_type"], name: "index_addresses_on_addressable_id_and_addressable_type"
   end
@@ -151,8 +160,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.integer "inbox_id"
     t.integer "agent_bot_id"
     t.integer "status", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "account_id"
   end
 
@@ -160,10 +169,9 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.string "name"
     t.string "description"
     t.string "outgoing_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "account_id"
-    t.index ["account_id"], name: "index_agent_bots_on_account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "hide_input_for_bot_conversations", default: false
   end
 
   create_table "attachments", id: :serial, force: :cascade do |t|
@@ -179,40 +187,23 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.string "extension"
   end
 
-  create_table "avatars", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "entity_type"
-    t.integer "entity_id"
-    t.integer "image_file_size"
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "campaigns", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "assigned_to"
-    t.string "name", limit: 64, default: "", null: false
-    t.string "access", limit: 8, default: "Public"
-    t.string "status", limit: 64
-    t.decimal "budget", precision: 12, scale: 2
-    t.integer "target_leads"
-    t.float "target_conversion"
-    t.decimal "target_revenue", precision: 12, scale: 2
-    t.integer "leads_count"
-    t.integer "opportunities_count"
-    t.decimal "revenue", precision: 12, scale: 2
-    t.date "starts_on"
-    t.date "ends_on"
-    t.text "objectives"
-    t.datetime "deleted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "display_id", null: false
+    t.string "title", null: false
+    t.text "description"
+    t.text "message", null: false
+    t.integer "sender_id"
+    t.boolean "enabled", default: true
+    t.bigint "account_id", null: false
+    t.bigint "inbox_id", null: false
+    t.jsonb "trigger_rules", default: {}
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "background_info"
     t.text "subscribed_users"
-    t.index ["assigned_to"], name: "index_campaigns_on_assigned_to"
-    t.index ["user_id", "name", "deleted_at"], name: "index_campaigns_on_user_id_and_name_and_deleted_at", unique: true
+    t.datetime "deleted_at"
+    t.index ["account_id"], name: "index_campaigns_on_account_id"
+    t.index ["inbox_id"], name: "index_campaigns_on_inbox_id"
   end
 
   create_table "canned_responses", id: :serial, force: :cascade do |t|
@@ -226,8 +217,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
   create_table "channel_api", force: :cascade do |t|
     t.integer "account_id", null: false
     t.string "webhook_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "identifier"
     t.string "hmac_token"
     t.boolean "hmac_mandatory", default: false
@@ -239,8 +230,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.integer "account_id", null: false
     t.string "email", null: false
     t.string "forward_to_email", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_channel_email_on_email", unique: true
     t.index ["forward_to_email"], name: "index_channel_email_on_forward_to_email", unique: true
   end
@@ -256,13 +247,24 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.index ["page_id"], name: "index_channel_facebook_pages_on_page_id"
   end
 
+  create_table "channel_instagram_posts", force: :cascade do |t|
+    t.string "page_id", null: false
+    t.string "user_access_token", null: false
+    t.string "page_access_token", null: false
+    t.bigint "accounts_id", null: false
+    t.string "post_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["accounts_id"], name: "index_channel_instagram_posts_on_accounts_id"
+  end
+
   create_table "channel_twilio_sms", force: :cascade do |t|
     t.string "phone_number", null: false
     t.string "auth_token", null: false
     t.string "account_sid", null: false
     t.integer "account_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "medium", default: 0
     t.index ["account_id", "phone_number"], name: "index_channel_twilio_sms_on_account_id_and_phone_number", unique: true
   end
@@ -272,8 +274,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.string "twitter_access_token", null: false
     t.string "twitter_access_token_secret", null: false
     t.integer "account_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["account_id", "profile_id"], name: "index_channel_twitter_profiles_on_account_id_and_profile_id", unique: true
   end
 
@@ -283,7 +285,7 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "website_token"
-    t.string "widget_color", default: "#1f93ff"
+    t.string "widget_color", default: "#132a4f"
     t.string "welcome_title"
     t.string "welcome_tagline"
     t.integer "feature_flags", default: 3, null: false
@@ -296,15 +298,15 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.index ["website_token"], name: "index_channel_web_widgets_on_website_token", unique: true
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.string "commentable_type"
     t.integer "commentable_id"
     t.boolean "private"
     t.string "title", default: ""
     t.text "comment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "state", limit: 16, default: "Expanded", null: false
   end
 
@@ -312,8 +314,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.bigint "contact_id"
     t.bigint "inbox_id"
     t.string "source_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "hmac_verified", default: false
     t.index ["contact_id"], name: "index_contact_inboxes_on_contact_id"
     t.index ["inbox_id", "source_id"], name: "index_contact_inboxes_on_inbox_id_and_source_id", unique: true
@@ -321,13 +323,13 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.index ["source_id"], name: "index_contact_inboxes_on_source_id"
   end
 
-  create_table "contact_opportunities", force: :cascade do |t|
+  create_table "contact_opportunities", id: :serial, force: :cascade do |t|
     t.integer "contact_id"
     t.integer "opportunity_id"
     t.string "role", limit: 32
     t.datetime "deleted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["contact_id", "opportunity_id"], name: "index_contact_opportunities_on_contact_id_and_opportunity_id"
   end
 
@@ -335,6 +337,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.string "name"
     t.string "phone_number"
     t.integer "account_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "pubsub_token"
     t.jsonb "additional_attributes", default: {}
     t.string "identifier"
@@ -361,12 +365,10 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.string "twitter", limit: 128
     t.date "born_on"
     t.boolean "do_not_call", default: false, null: false
-    t.datetime "deleted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string "background_info"
     t.string "skype", limit: 128
     t.text "subscribed_users"
+    t.datetime "deleted_at"
     t.index ["account_id"], name: "index_contacts_on_account_id"
     t.index ["assigned_to"], name: "index_contacts_on_assigned_to"
     t.index ["email", "account_id"], name: "uniq_email_per_account_contact", unique: true
@@ -400,35 +402,6 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.index ["team_id"], name: "index_conversations_on_team_id"
   end
 
-  create_table "csat_survey_responses", force: :cascade do |t|
-    t.bigint "account_id", null: false
-    t.bigint "conversation_id", null: false
-    t.bigint "message_id", null: false
-    t.integer "rating", null: false
-    t.text "feedback_message"
-    t.bigint "contact_id", null: false
-    t.bigint "assigned_agent_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["account_id"], name: "index_csat_survey_responses_on_account_id"
-    t.index ["assigned_agent_id"], name: "index_csat_survey_responses_on_assigned_agent_id"
-    t.index ["contact_id"], name: "index_csat_survey_responses_on_contact_id"
-    t.index ["conversation_id"], name: "index_csat_survey_responses_on_conversation_id"
-    t.index ["message_id"], name: "index_csat_survey_responses_on_message_id", unique: true
-  end
-
-  create_table "custom_filters", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "filter_type", default: 0, null: false
-    t.jsonb "query", default: "{}", null: false
-    t.bigint "account_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["account_id"], name: "index_custom_filters_on_account_id"
-    t.index ["user_id"], name: "index_custom_filters_on_user_id"
-  end
-
   create_table "data_imports", force: :cascade do |t|
     t.bigint "account_id", null: false
     t.string "data_type", null: false
@@ -436,8 +409,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.text "processing_errors"
     t.integer "total_records"
     t.integer "processed_records"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_data_imports_on_account_id"
   end
 
@@ -447,12 +420,12 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.integer "account_id"
     t.integer "template_type", default: 1
     t.integer "locale", default: 0, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["name", "account_id"], name: "index_email_templates_on_name_and_account_id", unique: true
   end
 
-  create_table "emails", force: :cascade do |t|
+  create_table "emails", id: :serial, force: :cascade do |t|
     t.string "imap_message_id", null: false
     t.integer "user_id"
     t.string "mediator_type"
@@ -467,8 +440,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.datetime "sent_at"
     t.datetime "received_at"
     t.datetime "deleted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "state", limit: 16, default: "Expanded", null: false
     t.index ["mediator_id", "mediator_type"], name: "index_emails_on_mediator_id_and_mediator_type"
   end
@@ -480,8 +453,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.integer "inbox_id"
     t.integer "user_id"
     t.integer "conversation_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_events_on_account_id"
     t.index ["created_at"], name: "index_events_on_created_at"
     t.index ["inbox_id"], name: "index_events_on_inbox_id"
@@ -489,48 +462,43 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
-  create_table "field_groups", force: :cascade do |t|
+  create_table "field_groups", id: :serial, force: :cascade do |t|
     t.string "name", limit: 64
     t.string "label", limit: 128
     t.integer "position"
     t.string "hint"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "tag_id"
     t.string "klass_name", limit: 32
   end
 
-  create_table "fields", force: :cascade do |t|
+  create_table "fields", id: :serial, force: :cascade do |t|
     t.string "type"
     t.integer "field_group_id"
+    t.string "klass_name", limit: 32
     t.integer "position"
     t.string "name", limit: 64
     t.string "label", limit: 128
     t.string "hint"
     t.string "placeholder"
     t.string "as", limit: 32
-    t.text "collection"
+    t.string "collection"
     t.boolean "disabled"
     t.boolean "required"
     t.integer "maxlength"
+    t.integer "minlength"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer "pair_id"
-    t.text "settings"
-    t.integer "minlength", default: 0
-    t.string "pattern"
-    t.string "autofocus"
-    t.string "autocomplete"
-    t.string "list"
-    t.string "multiple"
     t.index ["field_group_id"], name: "index_fields_on_field_group_id"
+    t.index ["klass_name"], name: "index_fields_on_klass_name"
     t.index ["name"], name: "index_fields_on_name"
   end
 
-  create_table "groups", force: :cascade do |t|
+  create_table "groups", id: :serial, force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "groups_users", id: false, force: :cascade do |t|
@@ -564,16 +532,15 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.string "out_of_office_message"
     t.string "timezone", default: "UTC"
     t.boolean "enable_email_collect", default: true
-    t.boolean "csat_survey_enabled", default: false
     t.index ["account_id"], name: "index_inboxes_on_account_id"
   end
 
   create_table "installation_configs", force: :cascade do |t|
     t.string "name", null: false
+    t.boolean "locked", default: false
     t.jsonb "serialized_value", default: {}, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.boolean "locked", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["name", "created_at"], name: "index_installation_configs_on_name_and_created_at", unique: true
     t.index ["name"], name: "index_installation_configs_on_name", unique: true
   end
@@ -586,8 +553,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.integer "hook_type", default: 0
     t.string "reference_id"
     t.string "access_token"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.jsonb "settings", default: {}
   end
 
@@ -602,8 +569,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.text "content"
     t.integer "status"
     t.integer "views"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "kbase_categories", force: :cascade do |t|
@@ -612,16 +579,16 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.string "name"
     t.text "description"
     t.integer "position"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "kbase_folders", force: :cascade do |t|
     t.integer "account_id", null: false
     t.integer "category_id", null: false
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "kbase_portals", force: :cascade do |t|
@@ -633,24 +600,25 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.string "homepage_link"
     t.string "page_title"
     t.text "header_text"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_kbase_portals_on_slug", unique: true
   end
 
   create_table "labels", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "color", default: "#1f93ff", null: false
+    t.string "color", default: "#132a4f", null: false
     t.boolean "show_on_sidebar"
     t.bigint "account_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_labels_on_account_id"
     t.index ["title", "account_id"], name: "index_labels_on_title_and_account_id", unique: true
   end
 
-  create_table "leads", force: :cascade do |t|
+  create_table "leads", id: :serial, force: :cascade do |t|
+    t.string "uuid", limit: 36
     t.integer "user_id"
     t.integer "campaign_id"
     t.integer "assigned_to"
@@ -673,8 +641,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.integer "rating", default: 0, null: false
     t.boolean "do_not_call", default: false, null: false
     t.datetime "deleted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "background_info"
     t.string "skype", limit: 128
     t.text "subscribed_users"
@@ -682,13 +650,19 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.index ["user_id", "last_name", "deleted_at"], name: "index_leads_on_user_id_and_last_name_and_deleted_at", unique: true
   end
 
-  create_table "lists", force: :cascade do |t|
+  create_table "lists", id: :serial, force: :cascade do |t|
     t.string "name"
     t.text "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
+  create_table "logos", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "messages", id: :serial, force: :cascade do |t|
@@ -714,41 +688,12 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.index ["source_id"], name: "index_messages_on_source_id"
   end
 
-  create_table "moonboard_items", force: :cascade do |t|
-    t.string "text"
-    t.integer "position"
-    t.bigint "moonboard_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["moonboard_id"], name: "index_moonboard_items_on_moonboard_id"
-  end
-
-  create_table "moonboards", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "account_id", null: false
-    t.index ["account_id"], name: "index_moonboards_on_account_id"
-  end
-
-  create_table "notes", force: :cascade do |t|
-    t.text "content", null: false
-    t.bigint "account_id", null: false
-    t.bigint "contact_id", null: false
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["account_id"], name: "index_notes_on_account_id"
-    t.index ["contact_id"], name: "index_notes_on_contact_id"
-    t.index ["user_id"], name: "index_notes_on_user_id"
-  end
-
   create_table "notification_settings", force: :cascade do |t|
     t.integer "account_id"
     t.integer "user_id"
     t.integer "email_flags", default: 0, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "push_flags", default: 0, null: false
     t.index ["account_id", "user_id"], name: "by_account_user", unique: true
   end
@@ -757,8 +702,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.bigint "user_id", null: false
     t.integer "subscription_type", null: false
     t.jsonb "subscription_attributes", default: {}, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "identifier"
     t.index ["identifier"], name: "index_notification_subscriptions_on_identifier", unique: true
     t.index ["user_id"], name: "index_notification_subscriptions_on_user_id"
@@ -773,15 +718,16 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.string "secondary_actor_type"
     t.bigint "secondary_actor_id"
     t.datetime "read_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_notifications_on_account_id"
     t.index ["primary_actor_type", "primary_actor_id"], name: "uniq_primary_actor_per_account_notifications"
     t.index ["secondary_actor_type", "secondary_actor_id"], name: "uniq_secondary_actor_per_account_notifications"
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
-  create_table "opportunities", force: :cascade do |t|
+  create_table "opportunities", id: :serial, force: :cascade do |t|
+    t.string "uuid", limit: 36
     t.integer "user_id"
     t.integer "campaign_id"
     t.integer "assigned_to"
@@ -794,20 +740,20 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.decimal "discount", precision: 12, scale: 2
     t.date "closes_on"
     t.datetime "deleted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "background_info"
     t.text "subscribed_users"
     t.index ["assigned_to"], name: "index_opportunities_on_assigned_to"
     t.index ["user_id", "name", "deleted_at"], name: "id_name_deleted", unique: true
   end
 
-  create_table "permissions", force: :cascade do |t|
+  create_table "permissions", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.string "asset_type"
     t.integer "asset_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "group_id"
     t.index ["asset_id", "asset_type"], name: "index_permissions_on_asset_id_and_asset_type"
     t.index ["group_id"], name: "index_permissions_on_group_id"
@@ -818,8 +764,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.bigint "platform_app_id", null: false
     t.string "permissible_type", null: false
     t.bigint "permissible_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["permissible_type", "permissible_id"], name: "index_platform_app_permissibles_on_permissibles"
     t.index ["platform_app_id", "permissible_id", "permissible_type"], name: "unique_permissibles_index", unique: true
     t.index ["platform_app_id"], name: "index_platform_app_permissibles_on_platform_app_id"
@@ -827,33 +773,49 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
 
   create_table "platform_apps", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "preferences", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "social_platform"
+    t.string "post_type"
+    t.string "action_link"
+    t.string "images"
+    t.string "video_url"
+    t.datetime "scheduled_at"
+    t.string "postable_type"
+    t.bigint "postable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["postable_type", "postable_id"], name: "index_posts_on_postable_type_and_postable_id"
+  end
+
+  create_table "preferences", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.string "name", limit: 32, default: "", null: false
     t.text "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id", "name"], name: "index_preferences_on_user_id_and_name"
   end
 
-  create_table "sessions", force: :cascade do |t|
+  create_table "sessions", id: :serial, force: :cascade do |t|
     t.string "session_id", null: false
     t.text "data"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["session_id"], name: "index_sessions_on_session_id"
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
-  create_table "settings", force: :cascade do |t|
+  create_table "settings", id: :serial, force: :cascade do |t|
     t.string "name", limit: 32, default: "", null: false
     t.text "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["name"], name: "index_settings_on_name"
   end
 
@@ -866,21 +828,30 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_super_admins_on_email", unique: true
   end
 
-  create_table "taggings", force: :cascade do |t|
+  create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
+    t.string "taggable_type"
     t.integer "taggable_id"
-    t.integer "tagger_id"
     t.string "tagger_type"
-    t.string "taggable_type", limit: 50
-    t.string "context", limit: 50
+    t.integer "tagger_id"
+    t.string "context", limit: 128
     t.datetime "created_at"
-    t.index ["tag_id", "taggable_id", "taggable_type", "context"], name: "taggings_idx", unique: true
+    t.index ["context"], name: "index_taggings_on_context"
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
     t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
+    t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
+    t.index ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id"
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
+    t.index ["tagger_type", "tagger_id"], name: "index_taggings_on_tagger_type_and_tagger_id"
   end
 
   create_table "tags", id: :serial, force: :cascade do |t|
@@ -889,7 +860,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
-  create_table "tasks", force: :cascade do |t|
+  create_table "tasks", id: :serial, force: :cascade do |t|
+    t.string "uuid", limit: 36
     t.integer "user_id"
     t.integer "assigned_to"
     t.integer "completed_by"
@@ -902,8 +874,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.datetime "due_at"
     t.datetime "completed_at"
     t.datetime "deleted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "background_info"
     t.text "subscribed_users"
     t.index ["assigned_to"], name: "index_tasks_on_assigned_to"
@@ -913,8 +885,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
   create_table "team_members", force: :cascade do |t|
     t.bigint "team_id", null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["team_id", "user_id"], name: "index_team_members_on_team_id_and_user_id", unique: true
     t.index ["team_id"], name: "index_team_members_on_team_id"
     t.index ["user_id"], name: "index_team_members_on_user_id"
@@ -925,8 +897,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.text "description"
     t.boolean "allow_auto_assign", default: true
     t.bigint "account_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_teams_on_account_id"
     t.index ["name", "account_id"], name: "index_teams_on_name_and_account_id", unique: true
   end
@@ -942,6 +914,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.string "name", null: false
     t.string "display_name"
     t.json "tokens"
@@ -971,28 +945,15 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "confirmed_at"
     t.boolean "admin", default: false, null: false
     t.datetime "suspended_at"
-    t.string "unconfirmed_email", limit: 254
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.string "remember_token"
-    t.datetime "remember_created_at"
-    t.string "authentication_token"
-    t.string "confirmation_token", limit: 255
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email"
     t.index ["pubsub_token"], name: "index_users_on_pubsub_token", unique: true
-    t.index ["remember_token"], name: "index_users_on_remember_token", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
-    t.index ["username", "deleted_at"], name: "index_users_on_username_and_deleted_at", unique: true
   end
 
-  create_table "versions", force: :cascade do |t|
+  create_table "versions", id: :serial, force: :cascade do |t|
     t.string "item_type", null: false
     t.integer "item_id", null: false
     t.string "event", limit: 512, null: false
@@ -1002,11 +963,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.text "object_changes"
     t.integer "related_id"
     t.string "related_type"
-    t.integer "transaction_id"
     t.index ["created_at"], name: "index_versions_on_created_at"
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
-    t.index ["related_id", "related_type"], name: "index_versions_on_related_id_and_related_type"
-    t.index ["transaction_id"], name: "index_versions_on_transaction_id"
     t.index ["whodunnit"], name: "index_versions_on_whodunnit"
   end
 
@@ -1014,8 +972,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.integer "account_id"
     t.integer "inbox_id"
     t.string "url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "webhook_type", default: 0
     t.index ["account_id", "url"], name: "index_webhooks_on_account_id_and_url", unique: true
   end
@@ -1029,8 +987,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
     t.integer "open_minutes"
     t.integer "close_hour"
     t.integer "close_minutes"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_working_hours_on_account_id"
     t.index ["inbox_id"], name: "index_working_hours_on_inbox_id"
   end
@@ -1038,22 +996,15 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
   add_foreign_key "account_users", "accounts"
   add_foreign_key "account_users", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "agent_bots", "accounts"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "campaigns", "accounts"
+  add_foreign_key "campaigns", "inboxes"
   add_foreign_key "contact_inboxes", "contacts"
   add_foreign_key "contact_inboxes", "inboxes"
+  add_foreign_key "conversations", "campaigns"
   add_foreign_key "conversations", "contact_inboxes"
   add_foreign_key "conversations", "teams"
-  add_foreign_key "csat_survey_responses", "accounts"
-  add_foreign_key "csat_survey_responses", "contacts"
-  add_foreign_key "csat_survey_responses", "conversations"
-  add_foreign_key "csat_survey_responses", "messages"
-  add_foreign_key "csat_survey_responses", "users", column: "assigned_agent_id"
   add_foreign_key "data_imports", "accounts"
-  add_foreign_key "moonboard_items", "moonboards"
-  add_foreign_key "moonboards", "accounts"
-  add_foreign_key "notes", "accounts"
-  add_foreign_key "notes", "contacts"
-  add_foreign_key "notes", "users"
   add_foreign_key "team_members", "teams"
   add_foreign_key "team_members", "users"
   add_foreign_key "teams", "accounts"
@@ -1077,6 +1028,13 @@ ActiveRecord::Schema.define(version: 2021_07_06_201614) do
       after(:insert).
       for_each(:row) do
     "execute format('create sequence IF NOT EXISTS camp_dpid_seq_%s', NEW.id);"
+  end
+
+  create_trigger("campaigns_before_insert_row_tr", :generated => true, :compatibility => 1).
+      on("campaigns").
+      before(:insert).
+      for_each(:row) do
+    "NEW.display_id := nextval('camp_dpid_seq_' || NEW.account_id);"
   end
 
 end

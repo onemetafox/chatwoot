@@ -23,9 +23,6 @@ class Channel::Api < ApplicationRecord
   validates :account_id, presence: true
   belongs_to :account
 
-  has_secure_token :identifier
-  has_secure_token :hmac_token
-
   has_one :inbox, as: :channel, dependent: :destroy
 
   def name

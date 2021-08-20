@@ -1,11 +1,10 @@
 <template>
   <aside class="sidebar animated shrink columns">
-    <div class="logo">
+    <div class="logo mt-3 mb-3">
       <router-link :to="dashboardPath" replace>
         <img :src="globalConfig.logo" :alt="globalConfig.installationName" />
       </router-link>
     </div>
-
     <div class="main-nav">
       <transition-group name="menu-list" tag="ul" class="menu vertical">
         <sidebar-item
@@ -112,6 +111,7 @@ export default {
     accessibleMenuItems() {
       // get all keys in menuGroup
       const groupKey = Object.keys(this.sidemenuItems);
+      // common, settings, admin
 
       let menuItems = [];
       // Iterate over menuGroup to find the correct group
@@ -123,7 +123,6 @@ export default {
           menuItems = Object.values(groupItem.menuItems);
         }
       }
-
       return this.filterMenuItemsByRole(menuItems);
     },
     currentRoute() {
@@ -329,4 +328,5 @@ export default {
 .teams-sidebar-menu + .nested.vertical.menu {
   padding-left: calc(var(--space-medium) - var(--space-one));
 }
+
 </style>

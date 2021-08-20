@@ -19,10 +19,13 @@ gem 'responders'
 gem 'rest-client'
 gem 'telephone_number'
 gem 'time_diff'
+gem 'twitter', '~> 7.0'
 gem 'tzinfo-data'
 gem 'valid_email2'
-gem 'paper_trail'
-# gem "cancan"
+gem 'slop', '~> 3.0'
+gem 'pry'
+gem 'pry-rails'
+gem 'pry-remote'
 # compress javascript config.assets.js_compressor
 gem 'uglifier'
 ##-- used for single column multiple binary flags in notification settings/feature flagging --##
@@ -35,6 +38,9 @@ gem 'liquid'
 gem 'commonmarker'
 # Validate Data against JSON Schema
 gem 'json_schemer'
+
+gem 'omniauth-facebook'
+gem 'koala'
 
 ##-- for active storage --##
 gem 'aws-sdk-s3', require: false
@@ -68,6 +74,39 @@ gem 'jwt'
 gem 'pundit'
 # super admin
 gem 'administrate'
+gem 'administrate-field-active_storage'
+gem "image_processing"
+gem 'ransack_ui'
+gem 'ransack', github: 'activerecord-hackery/ransack'
+
+# ///////////////////  FFRCM  /////////////////
+gem 'rails-observers'
+gem 'responders'
+gem 'jquery-rails'
+gem 'jquery-migrate-rails'
+gem 'jquery-ui-rails'
+gem 'select2-rails'
+gem 'haml'
+gem 'sass'
+gem 'acts_as_commentable'
+gem 'acts_as_list'
+gem 'acts-as-taggable-on'
+gem 'responds_to_parent'
+gem 'dynamic_form'
+gem 'paperclip'
+gem 'simple_form'
+gem 'will_paginate'
+gem 'paper_trail'
+gem 'cancan'
+gem 'rails3-jquery-autocomplete'
+gem 'ffaker'
+gem 'premailer'
+gem 'nokogiri'
+gem 'font-awesome-rails'
+gem 'thor'
+gem 'rails_autolink'
+
+# /////////////////////////////////////////////////
 
 ##--- gems for pubsub service ---##
 # https://karolgalanciak.com/blog/2019/11/30/from-activerecord-callbacks-to-publish-slash-subscribe-pattern-and-event-driven-design/
@@ -114,21 +153,6 @@ gem 'hairtrigger'
 
 gem 'procore-sift'
 
-#gems for moonboard
-gem 'sass-rails', '>= 6'
-gem 'turbolinks', '~> 5'
-gem 'zip_tricks'
-gem 'cloudinary', require: true
-gem 'activestorage-cloudinary-service'
-
-#gems for trello-clone
-gem 'devise-bootstrap-views'
-gem 'sprockets-rails'
-gem 'jquery-rails'
-gem 'rails-ujs'
-gem 'coffee-rails', '~> 4.2'
-gem 'acts_as_list'
-
 group :development do
   gem 'annotate'
   gem 'bullet'
@@ -147,11 +171,6 @@ group :test do
   gem 'cypress-on-rails', '~> 1.0'
   # fast cleaning of database
   gem 'database_cleaner'
-
-  #moonboard
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
 end
 
 group :development, :test do
@@ -162,6 +181,10 @@ group :development, :test do
   gem 'listen'
   gem 'mock_redis', git: 'https://github.com/sds/mock_redis', ref: '16d00789f0341a3aac35126c0ffe97a596753ff9'
   gem 'pry-rails'
+  gem 'pry-remote'
+  gem 'pry-byebug'
+
+
   gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false

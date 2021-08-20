@@ -6,8 +6,6 @@
 # See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
 class Api::V3::Admin::ApplicationController < Api::V3::ApiController
-# class Api::V3::Admin::ApplicationController < Api::BaseController
-
   
   # before_action :require_admin_user
 

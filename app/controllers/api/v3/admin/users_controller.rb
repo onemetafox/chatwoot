@@ -5,7 +5,7 @@
 # Fat Free CRM is freely distributable under the terms of MIT license.
 # See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
-class Api::Admin::UsersController < Api::Admin::ApplicationController
+class Api::V3::Admin::UsersController < Api::V3::Admin::ApplicationController
 
   # GET /admin/users
   # GET /admin/users.xml                                                   HTML
@@ -24,7 +24,6 @@ class Api::Admin::UsersController < Api::Admin::ApplicationController
   # POST /admin/users
   def create
     @user = User.new(user_params)
-
     @user.suspend_if_needs_approval
     if @user.save
       render json: @user, status: 200
@@ -63,7 +62,7 @@ class Api::Admin::UsersController < Api::Admin::ApplicationController
   # PUT /admin/users/1/suspend
   def suspend
     @user = User.find_by_id(params[:id])
-    @user.update_attribute(:suspended_at, Time.now) 
+    @user.update_attribute(:suspended_at, Time.now)
     render json: @user, status: 200
   end
 
@@ -82,7 +81,7 @@ class Api::Admin::UsersController < Api::Admin::ApplicationController
     params[:password_confirmation] = nil if params[:password_confirmation].blank?
     params[:email].try(:strip!)
     params[:alt_email].try(:strip!)
-
+    puts params
     params.permit(
       :admin,
       :username,

@@ -8,6 +8,7 @@ export const getSidebarItems = accountId => ({
       'inbox_conversation',
       'conversation_through_inbox',
       'contacts_dashboard',
+      'leads_dashboard',
       'contacts_dashboard_manage',
       'notifications_dashboard',
       'settings_account_reports',
@@ -19,6 +20,8 @@ export const getSidebarItems = accountId => ({
       'conversations_through_team',
       'notifications_index',
       'post_form',
+      'admin_dashboard',
+      'entity_leads',
     ],
     menuItems: {
       assignedToMe: {
@@ -36,6 +39,13 @@ export const getSidebarItems = accountId => ({
         hasSubMenu: false,
         toState: frontendURL(`accounts/${accountId}/contacts`),
         toStateName: 'contacts_dashboard',
+      },
+      leads: {
+        icon: 'ios-bookmarks',
+        label: 'LEADS',
+        hasSubMenu: false,
+        toState: frontendURL(`accounts/${accountId}/leads`),
+        toStateName: 'leads_dashboard',
       },
       notifications: {
         icon: 'ion-ios-bell',
@@ -65,12 +75,28 @@ export const getSidebarItems = accountId => ({
         toState: frontendURL(`accounts/${accountId}/dashboard/posts`),
         toStateName: "contacts_dashboard",
       },
+      admin: {
+        icon: 'ion-android-desktop',
+        label: 'ADMIN',
+        hasSubMenu: false,
+        toState: frontendURL(`accounts/${accountId}/admin`),
+        toStateName: 'admin_dashboard',
+      },
+      entity_leads: {
+        icon: 'ion-ios-more',
+        label: 'LEADS',
+        hasSubMenu: false,
+        toState: frontendURL(`accounts/${accountId}/entity/leads`),
+        toStateName: 'entity_leads'
+      },
     },
   },
   settings: {
     routes: [
       'agent_list',
       'canned_list',
+      'tag_list',
+      'group_list',
       'labels_list',
       'settings_inbox',
       'settings_inbox_new',
@@ -109,6 +135,20 @@ export const getSidebarItems = accountId => ({
         hasSubMenu: false,
         toState: frontendURL(`accounts/${accountId}/settings/agents/list`),
         toStateName: 'agent_list',
+      },
+      tags: {
+        icon: 'ion-pricetags',
+        label: 'TAGS',
+        hasSubMenu: false,
+        toState: frontendURL(`accounts/${accountId}/settings/tags/list`),
+        toStateName: 'tag_list',
+      },
+      groups: {
+        icon: 'ion-person-stalker',
+        label: 'GROUPS',
+        hasSubMenu: false,
+        toState: frontendURL(`accounts/${accountId}/settings/groups/list`),
+        toStateName: 'group_list',
       },
       teams: {
         icon: 'ion-ios-people',
@@ -160,6 +200,43 @@ export const getSidebarItems = accountId => ({
         hasSubMenu: false,
         toState: frontendURL(`accounts/${accountId}/settings/general`),
         toStateName: 'general_settings_index',
+      },
+    },
+  },
+  admin: {
+    routes: [
+      'admin_dashboard_fields',
+      'admin_dashboard_tags',
+      'admin_dashboard_groups',
+    ],
+    menuItems: {
+      back: {
+        icon: 'ion-ios-arrow-back',
+        label: 'HOME',
+        hasSubMenu: false,
+        toStateName: 'home',
+        toState: frontendURL(`accounts/${accountId}/dashboard`),
+      },
+      fields: {
+        icon: 'ion-document',
+        label: 'FIELDS',
+        hasSubMenu: false,
+        toState: frontendURL(`accounts/${accountId}/admin/fields`),
+        toStateName: 'admin_dashboard_fields',
+      },
+      tags: {
+        icon: 'ion-pricetags',
+        label: 'TAGS',
+        hasSubMenu: false,
+        toState: frontendURL(`accounts/${accountId}/admin/tags`),
+        toStateName: 'admin_dashboard_tags',
+      },
+      groups: {
+        icon: 'ion-compose',
+        label: 'GROUPS',
+        hasSubMenu: false,
+        toState: frontendURL(`accounts/${accountId}/admin/groups`),
+        toStateName: 'admin_dashboard_groups',
       },
     },
   },

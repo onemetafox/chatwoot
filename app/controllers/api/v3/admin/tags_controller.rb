@@ -11,12 +11,20 @@ class Api::V3::Admin::TagsController < Api::V3::Admin::ApplicationController
   # GET /admin/tags.xml                                                   HTML
   #----------------------------------------------------------------------------
   def index
+    @tag = Tag.all
+    render json: {data: @tag.to_json, success: true}, status: 200
+  end
+
+  # GET /admin/tags/1
+  #----------------------------------------------------------------------------
+  def show
+    @tag = Tag.find_by_id(params[:id])
     render json: {data: @tag.to_json, success: true}, status: 200
   end
 
   # POST /admin/tags
   # POST /admin/tags.xml                                                  AJAX
-  #----------------------------------------------------------------------------
+  #-----------------------------------------------------------------------------
   def create
     @tag = Tag.new(tag_params)
     if @tag.save
@@ -39,7 +47,7 @@ class Api::V3::Admin::TagsController < Api::V3::Admin::ApplicationController
     end
   end
   
-  def delete
+  def destroy
     @tag = Tag.find_by_id(params[:id])
     if @tag.destroy
      render json: {data: @tag, success: true}, status: 200

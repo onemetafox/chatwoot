@@ -1,7 +1,7 @@
 class Twitter::WebhookSubscribeService
   include Rails.application.routes.url_helpers
 
-  pattr_initialize [:inbox_id]
+  pattr_initialize [:inbox_id, :host]
 
   def perform
     ensure_webhook
@@ -23,7 +23,7 @@ class Twitter::WebhookSubscribeService
   end
 
   def twitter_url
-    webhooks_twitter_url(protocol: 'https')
+    webhooks_twitter_url(host: host, protocol: 'https')
   end
 
   def ensure_webhook

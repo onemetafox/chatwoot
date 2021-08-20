@@ -6,11 +6,8 @@
 #  admin                  :boolean          default(FALSE), not null
 #  aim                    :string(32)
 #  alt_email              :string(254)
-#  authentication_token   :string
 #  availability           :integer          default("online")
 #  company                :string(64)
-#  confirmation_sent_at   :datetime
-#  confirmation_token     :string(255)
 #  confirmed_at           :datetime
 #  current_sign_in_at     :datetime
 #  current_sign_in_ip     :string
@@ -30,9 +27,7 @@
 #  provider               :string           default("email"), not null
 #  pubsub_token           :string
 #  remember_created_at    :datetime
-#  remember_token         :string
 #  reset_password_sent_at :datetime
-#  reset_password_token   :string
 #  sign_in_count          :integer          default(0), not null
 #  skype                  :string(32)
 #  suspended_at           :datetime
@@ -40,7 +35,6 @@
 #  tokens                 :json
 #  ui_settings            :jsonb
 #  uid                    :string           default(""), not null
-#  unconfirmed_email      :string(254)
 #  username               :string(32)       default(""), not null
 #  yahoo                  :string(32)
 #  created_at             :datetime
@@ -48,21 +42,12 @@
 #
 # Indexes
 #
-#  index_users_on_authentication_token     (authentication_token) UNIQUE
-#  index_users_on_confirmation_token       (confirmation_token) UNIQUE
-#  index_users_on_email                    (email)
-#  index_users_on_pubsub_token             (pubsub_token) UNIQUE
-#  index_users_on_remember_token           (remember_token) UNIQUE
-#  index_users_on_reset_password_token     (reset_password_token) UNIQUE
-#  index_users_on_uid_and_provider         (uid,provider) UNIQUE
-#  index_users_on_username_and_deleted_at  (username,deleted_at) UNIQUE
+#  index_users_on_email             (email)
+#  index_users_on_pubsub_token      (pubsub_token) UNIQUE
+#  index_users_on_uid_and_provider  (uid,provider) UNIQUE
 #
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
   include AccessTokenable
   include AvailabilityStatusable
   include Avatarable
@@ -84,16 +69,12 @@ class User < ApplicationRecord
 
   enum availability: { online: 0, offline: 1, busy: 2 }
 
-  #  //////////// F-Mode  ////////////
-  before_create :suspend_if_needs_approval
-  #  //////////// F-Mode  ////////////
-
   # The validation below has been commented out as it does not
   # work because :validatable in devise overrides this.
   # validates_uniqueness_of :email, scope: :account_id
 
   validates :email, :name, presence: true
-  # validates_length_of :name, minimum: 1
+  validates_length_of :name, minimum: 1
 
   has_many :account_users, dependent: :destroy
   has_many :accounts, through: :account_users
@@ -101,7 +82,6 @@ class User < ApplicationRecord
 
   has_many :assigned_conversations, foreign_key: 'assignee_id', class_name: 'Conversation', dependent: :nullify
   alias_attribute :conversations, :assigned_conversations
-  has_many :csat_survey_responses, foreign_key: 'assigned_agent_id', dependent: :nullify
 
   has_many :inbox_members, dependent: :destroy
   has_many :inboxes, through: :inbox_members, source: :inbox
@@ -113,14 +93,12 @@ class User < ApplicationRecord
   has_many :notification_subscriptions, dependent: :destroy
   has_many :team_members, dependent: :destroy
   has_many :teams, through: :team_members
-  has_many :moonboards, dependent: :destroy
-  has_many :notes, dependent: :nullify
-  has_many :custom_filters, dependent: :destroy
-  #   ////////////////  Fat Free CRM Mode////////////
   
 
+  # /////////////   FFCRM    /////////////
+
   has_one :avatar, as: :entity, dependent: :destroy  # Personal avatar.
-  has_many :avatars                                  # As owner who uploaded it, ex. Contact avatar.
+  # has_many :avatars                                  # As owner who uploaded it, ex. Contact avatar.
   has_many :comments, as: :commentable               # As owner who created a comment.
   has_many :accounts
   has_many :campaigns
@@ -133,21 +111,23 @@ class User < ApplicationRecord
   has_many :lists
   has_and_belongs_to_many :groups
 
-  # //////////////////  F-Mode  /////////////////////////
+  #   //////////////////////////////////////////
 
-  # has_paper_trail versions: { class_name: 'Version' }, ignore: [:last_sign_in_at]
-  #   ////////////////  Fat Free CRM Mode////////////
   before_validation :set_password_and_uid, on: :create
 
   after_create_commit :create_access_token
   after_save :update_presence_in_redis, if: :saved_change_to_availability?
+
   scope :order_by_full_name, -> { order('lower(name) ASC') }
 
-  # ///////////////////   F-Mode  ////////////
+  # //////////////////  FFCRM //////////////////////
+  # has_paper_trail versions: { class_name: 'Version' }, ignore: [:last_sign_in_at]
+
   scope :by_id, -> { order('id DESC') }
   # TODO: /home/clockwerx/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/scoping/named.rb:175:in `scope': You tried to define a scope named "without" on the model "User", but ActiveRecord::Relation already defined an instance method with the same name. (ArgumentError)
   scope :without_user, ->(user) { where('id != ?', user.id).by_name }
   scope :by_name, -> { order('first_name, last_name, email') }
+
 
   scope :text_search, lambda { |query|
     query = query.gsub(/[^\w\s\-\.'\p{L}]/u, '').strip
@@ -161,9 +141,7 @@ class User < ApplicationRecord
       .where("opportunities.stage <> 'lost' AND opportunities.stage <> 'won'")
       .select('DISTINCT(users.id), users.*')
   }
-
-  # //////////////////  F-Mode  //////////////////
-
+  # ///////////////////////////////////////////////////
 
   def send_devise_notification(notification, *args)
     devise_mailer.with(account: Current.account).send(notification, self, *args).deliver_later
@@ -239,13 +217,24 @@ class User < ApplicationRecord
       type: 'user'
     }
   end
-
-  # //////////////////  F-Mode  /////////////////////
+  def suspend_if_needs_approval
+    self.suspended_at = Time.now if Setting.user_signup == :needs_approval && !admin
+  end
 
   def name
     first_name.blank? ? username : first_name
   end
 
+  private
+
+  def update_presence_in_redis
+    accounts.each do |account|
+      OnlineStatusTracker.set_status(account.id, id, availability)
+    end
+  end
+
+  #  ///////////////   FFCRM  ///////////////
+  
   #----------------------------------------------------------------------------
   def full_name
     first_name.blank? && last_name.blank? ? email : "#{first_name} #{last_name}".strip
@@ -317,9 +306,7 @@ class User < ApplicationRecord
 
   # Suspend newly created user if signup requires an approval.
   #----------------------------------------------------------------------------
-  def suspend_if_needs_approval
-    self.suspended_at = Time.now if Setting.user_signup == :needs_approval && !admin
-  end
+  
 
   # Prevent deleting a user unless she has no artifacts left.
   #----------------------------------------------------------------------------
@@ -348,12 +335,6 @@ class User < ApplicationRecord
       end
     end
   end
-  
-  private
 
-  def update_presence_in_redis
-    accounts.each do |account|
-      OnlineStatusTracker.set_status(account.id, id, availability)
-    end
-  end
+  # /////////////   FFCRM  ////////////////////
 end

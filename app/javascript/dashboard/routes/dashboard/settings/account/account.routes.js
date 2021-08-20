@@ -6,7 +6,6 @@ export default {
   routes: [
     {
       path: frontendURL('accounts/:accountId/settings/general'),
-      roles: ['administrator'],
       component: SettingsContent,
       props: {
         headerTitle: 'GENERAL_SETTINGS.TITLE',

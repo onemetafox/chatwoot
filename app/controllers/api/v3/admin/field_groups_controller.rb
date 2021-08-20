@@ -5,8 +5,8 @@
 # Fat Free CRM is freely distributable under the terms of MIT license.
 # See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
-class Api::Admin::FieldGroupsController < Api::Admin::ApplicationController
-  helper 'admin/fields'
+class Api::V3::Admin::FieldGroupsController < Api::V3::Admin::ApplicationController
+  # helper 'admin/fields'
 
   # GET /admin/field_groups/1
   # GET /admin/field_groups/1.xml                                        AJAX
@@ -47,7 +47,7 @@ class Api::Admin::FieldGroupsController < Api::Admin::ApplicationController
   # DELETE /admin/field_groups/1
   # DELETE /admin/field_groups/1.xml                                       AJAX
   #----------------------------------------------------------------------------
-  def delete
+  def destroy
     @field_group = FieldGroup.find(params[:id])
     if @field_group.destroy
       render json: {data: @field_group, success: true}, status: 200

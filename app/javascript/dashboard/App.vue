@@ -39,7 +39,6 @@ export default {
     async initializeAccount() {
       const { pathname } = window.location;
       const accountId = accountIdFromPathname(pathname);
-
       if (accountId) {
         await this.$store.dispatch('accounts/get');
         const { locale } = this.getAccount(accountId);

@@ -93,6 +93,7 @@ export const validateAuthenticateRoutePermission = (to, from, next) => {
 };
 
 const validateRouteAccess = (to, from, next) => {
+  console.log('test routes...', to, from)
   if (
     window.chatwootConfig.signupEnabled !== 'true' &&
     to.meta &&

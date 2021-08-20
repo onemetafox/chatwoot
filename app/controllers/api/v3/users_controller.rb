@@ -5,14 +5,14 @@
 # Fat Free CRM is freely distributable under the terms of MIT license.
 # See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
-class UsersController < ApplicationController
-  before_action :set_current_tab, only: %i[show opportunities_overview] # Don't hightlight any tabs.
+class Api::V3::UsersController < Api::V3::ApiController
+  # before_action :set_current_tab, only: %i[show opportunities_overview] # Don't hightlight any tabs.
 
-  check_authorization
+  # check_authorization
 
-  load_and_authorize_resource # handles all security
+  # load_and_authorize_resource # handles all security
 
-  respond_to :html, only: %i[show new]
+  # respond_to :html, only: %i[show new]
 
   # GET /users/1
   # GET /users/1.js

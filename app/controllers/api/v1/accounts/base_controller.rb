@@ -8,7 +8,7 @@ class Api::V1::Accounts::BaseController < Api::BaseController
   def current_account
     @current_account ||= ensure_current_account
     Current.account = @current_account
-  end
+ end
 
   def ensure_current_account
     account = Account.find(params[:account_id])

@@ -23,7 +23,6 @@
 .DS_Store
 *.log
 # Ignore application configuration
-node_modules
 master.key
 *.rdb
 

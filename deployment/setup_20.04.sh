@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Description: Chatwoot installation script
+# Description: Abrand installation script
 # OS: Ubuntu 20.04 LTS / Ubuntu 20.10
 # Script Version: 0.5
 # Run this script as root
@@ -22,8 +22,8 @@ apt install -y \
 
 adduser --disabled-login --gecos "" chatwoot
 
-gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-gpg2 --keyserver hkp://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+gpg2 --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 curl -sSL https://get.rvm.io | bash -s stable
 addgroup chatwoot rvm
 
@@ -50,8 +50,8 @@ RAILS_ENV=production
 sudo -i -u chatwoot << EOF
 rvm --version
 rvm autolibs disable
-rvm install "ruby-2.7.3"
-rvm use 2.7.3 --default
+rvm install "ruby-2.7.2"
+rvm use 2.7.2 --default
 
 git clone https://github.com/chatwoot/chatwoot.git
 cd chatwoot
@@ -87,7 +87,7 @@ read -p 'Would you like to configure Webserver and SSL (yes or no): ' configure_
 
 if [ $configure_webserver != "yes" ]
 then
-echo "Woot! Woot!! Chatwoot server installation is complete"
+echo "Woot! Woot!! Abrand server installation is complete"
 echo "The server will be accessible at http://<server-ip>:3000"
 echo "To configure a domain and SSL certificate, follow the guide at https://www.chatwoot.com/docs/deployment/deploy-chatwoot-in-linux-vm"
 else
@@ -104,6 +104,6 @@ cd chatwoot
 sed -i "s/http:\/\/0.0.0.0:3000/https:\/\/$domain_name/g" .env
 EOF
 systemctl restart chatwoot.target
-echo "Woot! Woot!! Chatwoot server installation is complete"
+echo "Woot! Woot!! Abrand server installation is complete"
 echo "The server will be accessible at https://$domain_name"
 fi

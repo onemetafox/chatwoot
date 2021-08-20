@@ -5,7 +5,7 @@
 # Fat Free CRM is freely distributable under the terms of MIT license.
 # See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
-class Api::Admin::SettingsController < Api::Admin::ApplicationController
+class Api::V3::Admin::SettingsController < Api::V3::Admin::ApplicationController
   # before_action :setup_current_tab, only: [:index]
 
   # GET /admin/settings

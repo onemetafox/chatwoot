@@ -17,13 +17,14 @@ as defined by the routes in the `admin/` namespace
     super_admins: 'ion ion-unlocked',
     access_tokens: 'ion-key',
     platform_apps: 'ion ion-social-buffer',
-    installation_configs: 'ion ion-settings'
+    installation_configs: 'ion ion-settings',
+    logos: 'ion ion-settings'
   }
 %>
 
 <div class="navigation" role="navigation">
   <div class="logo-brand">
-    <%= link_to image_tag('/brand-assets/logo.svg', alt: 'Chatwoot Admin Dashboard'), super_admin_root_url %>
+    <%= link_to image_tag(url_for(@logo.avatar), alt: @logo.title), super_admin_root_url %>
     <div class="app-version">v<%= Chatwoot.config[:version] %></div>
   </div>
 
@@ -36,8 +37,9 @@ as defined by the routes in the `admin/` namespace
       <% next if ["account_users", "agent_bots", "dashboard", "devise/sessions"].include?  resource.resource %>
       <li class="navigation__link navigation__link--<%= nav_link_state(resource) %>">
         <i class="<%= sidebar_icons[resource.resource.to_sym] %>"></i>
+        <% resource_name = display_resource_name(resource) == "Logos" ? "Settings" : display_resource_name(resource) %>
         <%= link_to(
-          display_resource_name(resource),
+          resource_name,
           resource_index_route(resource)
         ) if valid_action? :index, resource  %>
       </li>

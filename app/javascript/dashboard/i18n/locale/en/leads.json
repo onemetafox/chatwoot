@@ -1,0 +1,72 @@
+{
+  "LEADS_PAGE": {
+    "HEADER": "Leads",
+    "CREATE_LEAD": "Create Lead",
+    "CLOSE_LEAD": "Create Lead",
+    "SEARCH_INPUT_PLACEHOLDER": "Search for lead",
+    "LIST": {
+      "LOADING_MESSAGE": "Loading lead...",
+      "404": "No lead matches your search 🔍",
+      "TABLE_HEADER": {
+        "STATUS": "Status",
+        "NAME": "Name",
+        "REFER": "Refer",
+        "RANK": "Rank",
+        "EMAIL": "Email",
+        "PHONE": "Phone",
+        "CREATED_AT": "Created At"
+      },
+      "VIEW_DETAILS": "View details"
+    }
+  },
+  "REMINDER": {
+    "ADD_BUTTON": {
+      "BUTTON": "Add",
+      "TITLE": "Shift + Enter to create a lead"
+    }
+  },
+  "NOTES": {
+    "HEADER": {
+      "TITLE": "Notes"
+    },
+    "ADD": {
+      "BUTTON": "Add",
+      "PLACEHOLDER": "Add a note",
+      "TITLE": "Shift + Enter to create a note"
+    },
+    "FOOTER": {
+      "BUTTON": "View all notes"
+    }
+  },
+  "EVENTS": {
+    "HEADER": {
+      "TITLE": "Activities"
+    },
+    "BUTTON": {
+      "PILL_BUTTON_NOTES": "notes",
+      "PILL_BUTTON_EVENTS": "events",
+      "PILL_BUTTON_CONVO": "conversations"
+    }
+  },
+  "CUSTOM_ATTRIBUTES": {
+    "TITLE": "Custom Attributes",
+    "BUTTON": "Add custom attribute",
+    "ADD": {
+      "TITLE": "Create custom attribute",
+      "DESC": "Add custom information to this lead."
+    },
+    "FORM": {
+      "CREATE": "Add attribute",
+      "CANCEL": "Cancel",
+      "NAME": {
+        "LABEL": "Custom attribute name",
+        "PLACEHOLDER": "Eg: shopify id",
+        "ERROR": "Invalid custom attribute name"
+      },
+      "VALUE": {
+        "LABEL": "Attribute value",
+        "PLACEHOLDER": "Eg: 11901 "
+      }
+    }
+  }
+}

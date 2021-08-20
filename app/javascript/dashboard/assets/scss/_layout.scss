@@ -11,6 +11,7 @@ body {
 .app-wrapper {
   @include full-height;
   width: 100%;
+  display: flex;
 }
 
 .app-root {

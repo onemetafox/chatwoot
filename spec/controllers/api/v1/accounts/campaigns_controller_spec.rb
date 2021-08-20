@@ -18,9 +18,7 @@ RSpec.describe 'Campaigns API', type: :request do
       let!(:campaign) { create(:campaign, account: account) }
 
       it 'returns unauthorized for agents' do
-        get "/api/v1/accounts/#{account.id}/campaigns",
-            headers: agent.create_new_auth_token,
-            as: :json
+        get "/api/v1/accounts/#{account.id}/campaigns"
 
         expect(response).to have_http_status(:unauthorized)
       end

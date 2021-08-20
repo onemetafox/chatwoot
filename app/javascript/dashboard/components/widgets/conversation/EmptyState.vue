@@ -85,7 +85,7 @@ export default {
 <style lang="scss" scoped>
 .inbox-empty-state {
   height: 100%;
-  overflow: auto;
+  // overflow: auto;
 }
 
 .current-chat {

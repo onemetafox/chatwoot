@@ -5,15 +5,15 @@
 # Fat Free CRM is freely distributable under the terms of MIT license.
 # See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
-class Api::EntitiesController < Api::ApiController
+class Api::V3::EntitiesController < Api::V3::ApiController
   # before_action :set_view, only: %i[index show redraw]
 
   # before_action :set_options, only: :index
   # before_action :load_ransack_search, only: :index
 
-  load_and_authorize_resource
+  # load_and_authorize_resource
 
-  after_action :update_recently_viewed, only: :show
+  # after_action :update_recently_viewed, only: :show
 
   helper_method :entity, :entities
 

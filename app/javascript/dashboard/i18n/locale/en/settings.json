@@ -138,7 +138,13 @@
       "LABELS": "Labels",
       "POSTS": "Post Schedule",
       "TEAMS": "Teams",
-      "CHANGE_LOGO": "Logo change"
+      "CHANGE_LOGO": "Logo change",
+      "ADMIN": "Admin Dashboard",
+      "FIELDS": "Fields",
+      "TAGS": "Tags",
+      "GROUPS": "Groups",
+      "LEADS": "Leads",
+      "TASKS": "Tasks"
     },
     "CREATE_ACCOUNT": {
       "NEW_ACCOUNT": "New Account",

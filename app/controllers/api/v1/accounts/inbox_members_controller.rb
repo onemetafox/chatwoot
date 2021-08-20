@@ -1,6 +1,7 @@
 class Api::V1::Accounts::InboxMembersController < Api::V1::Accounts::BaseController
   before_action :fetch_inbox, only: [:create, :show]
   before_action :current_agents_ids, only: [:create]
+  skip_before_action :verify_authenticity_token, only: [:create]
 
   def create
     authorize @inbox, :create?

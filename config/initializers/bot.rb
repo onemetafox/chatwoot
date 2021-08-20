@@ -1,5 +1,5 @@
 # Remember that Rails only eager loads everything in its production environment.
-# In the development and test environments, it only requires files as you reference constants. 
+# In the development and test environments, it only requires files as you reference constants.
 # You'll need to explicitly load app/bot
 
 unless Rails.env.production?
@@ -32,7 +32,7 @@ class ChatwootFbProvider < Facebook::Messenger::Configuration::Providers::Base
   private
 
   def bot
-    Chatwoot::Bot
+    Abrand::Bot
   end
 end
 

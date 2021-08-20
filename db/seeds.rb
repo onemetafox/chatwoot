@@ -1,6 +1,7 @@
 # loading installation configs
 GlobalConfig.clear_cache
 ConfigLoader.new.process
+Logo.create_default
 
 ## Seeds productions
 if Rails.env.production?
@@ -9,21 +10,20 @@ if Rails.env.production?
 end
 
 ## Seeds for Local Development
-unless Rails.env.production?
-  SuperAdmin.create!(email: 'john@acme.inc', password: 'Password1!')
+#unless Rails.env.production?
+  SuperAdmin.create!(email: 'admin2@admin.com', password: '1Qazxsw@3edc')
 
   account = Account.create!(
-    name: 'Acme Inc'
+    name: 'Social'
   )
 
   secondary_account = Account.create!(
-    name: 'Acme Org'
+    name: 'Social'
   )
 
-  user = User.new(name: 'John', email: 'john@acme.inc', password: 'Password1!')
+  user = User.new(username: "Admin", name: 'Administrator', email: 'admin2@admin.com', password: '1Qazxsw@3edc')
   user.skip_confirmation!
   user.save!
-
   AccountUser.create!(
     account_id: account.id,
     user_id: user.id,
@@ -47,7 +47,7 @@ unless Rails.env.production?
   inbox = Inbox.create!(channel: web_widget, account: account, name: 'Acme Support')
   InboxMember.create!(user: user, inbox: inbox)
 
-  contact = Contact.create!(name: 'jane', email: 'jane@example.com', phone_number: '+2320000', account: account)
+  contact = Contact.create!(name: 'jane', email: 'jane3@example.com', phone_number: '+22320000', account: account, user: user)
   contact_inbox = ContactInbox.create!(inbox: inbox, contact: contact, source_id: user.id, hmac_verified: true)
   conversation = Conversation.create!(
     account: account,
@@ -59,21 +59,19 @@ unless Rails.env.production?
     additional_attributes: {}
   )
 
-  # sample email collect
-  WootMessageSeeder.create_sample_email_collect_message conversation
+  # # sample email collect
+  # WootMessageSeeder.create_sample_email_collect_message conversation
 
-  Message.create!(content: 'Hello', account: account, inbox: inbox, conversation: conversation, message_type: :incoming)
+  # Message.create!(content: 'Hello every one', account: account, inbox: inbox, conversation: conversation, message_type: :incoming)
 
-  # sample card
-  WootMessageSeeder.create_sample_cards_message conversation
-  # input select
-  WootMessageSeeder.create_sample_input_select_message conversation
-  # form
-  WootMessageSeeder.create_sample_form_message conversation
-  # articles
-  WootMessageSeeder.create_sample_articles_message conversation
-  # csat
-  WootMessageSeeder.create_sample_csat_collect_message conversation
+  # # sample card
+  # WootMessageSeeder.create_sample_cards_message conversation
+  # # input select
+  # WootMessageSeeder.create_sample_input_select_message conversation
+  # # form
+  # WootMessageSeeder.create_sample_form_message conversation
+  # # articles
+  # WootMessageSeeder.create_sample_articles_message conversation
 
-  CannedResponse.create!(account: account, short_code: 'start', content: 'Hello welcome to chatwoot.')
-end
+  # CannedResponse.create!(account: account, short_code: 'start', content: 'Hello welcome to chatwoot.')
+#end

@@ -5,7 +5,7 @@
 # Fat Free CRM is freely distributable under the terms of MIT license.
 # See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
-class Api::Entities::AccountsController < Api::EntitiesController
+class Api::V3::Entities::AccountsController < Api::V3::EntitiesController
   # before_action :get_data_for_sidebar, only: :index
 
   # GET /accounts
@@ -13,20 +13,22 @@ class Api::Entities::AccountsController < Api::EntitiesController
   def index
     # @accounts = get_accounts(page: page_param, per_page: per_page_param)
     @accounts = get_accouts
-    render json: {data: @accounts.to_json(include: [:assignee, :tags]), success: true }, status: 200
+    render json: {data: @accounts.to_json(include: [:assignee]), success: true }, status: 200
   end
 
   # GET /accounts/1
   def show
-    @stage = Setting.unroll(:opportunity_stage)
-    @comment = Comment.new
-    @timeline = timeline(@account)
+    # @stage = Setting.unroll(:opportunity_stage)
+    # @comment = Comment.new
+    # @timeline = timeline(@account)
+    @account = Account.find(params[:id])
     render json: { data: @account.to_json(include: [:tasks, :contacts, :opportunities]), success: true }, status: 200
   end
 
 
   # POST /accounts
   def create
+    @account =Account.new()
     @comment_body = params[:comment_body]
     if @account.save
       @account.add_comment_by_user(@comment_body, current_user)
@@ -41,6 +43,7 @@ class Api::Entities::AccountsController < Api::EntitiesController
   #----------------------------------------------------------------------------
   def update
     # respond_with(@account) do |_format|
+    @account = Account.find(params[:id])
     if @account.save
       @account.update(resource_params)
       @account.access = params[:account][:access] if params[:account][:access]

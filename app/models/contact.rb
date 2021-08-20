@@ -33,8 +33,8 @@
 #  subscribed_users      :text
 #  title                 :string(64)
 #  twitter               :string(128)
-#  created_at            :datetime
-#  updated_at            :datetime
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
 #  account_id            :integer          not null
 #  lead_id               :integer
 #  user_id               :integer
@@ -65,25 +65,26 @@ class Contact < ApplicationRecord
   belongs_to :account
   has_many :conversations, dependent: :destroy
   has_many :contact_inboxes, dependent: :destroy
-  has_many :csat_survey_responses, dependent: :destroy
   has_many :inboxes, through: :contact_inboxes
   has_many :messages, as: :sender, dependent: :destroy
-  has_many :notes, dependent: :destroy
 
-  # ////////////////   F-Mode  /////////////////
+  before_validation :prepare_email_attribute
+  after_create_commit :dispatch_create_event, :ip_lookup
+  after_update_commit :dispatch_update_event
+
+  # ///////////////////////   FFCRM  /////////////////////
   belongs_to :user
   belongs_to :lead, optional: true # TODO: Is this really optional?
   belongs_to :assignee, class_name: "User", foreign_key: :assigned_to, optional: true # TODO: Is this really optional?
   belongs_to :reporting_user, class_name: "User", foreign_key: :reports_to, optional: true # TODO: Is this really optional?
   has_one :account_contact, dependent: :destroy
-  has_one :account, through: :account_contact
+  # has_one :account, through: :account_contact
   has_many :contact_opportunities, dependent: :destroy
   has_many :opportunities, -> { order("opportunities.id DESC").distinct }, through: :contact_opportunities
   has_many :tasks, as: :asset, dependent: :destroy # , :order => 'created_at DESC'
   has_one :business_address, -> { where(address_type: "Business") }, dependent: :destroy, as: :addressable, class_name: "Address"
   has_many :addresses, dependent: :destroy, as: :addressable, class_name: "Address" # advanced search uses this
   has_many :emails, as: :mediator
-
 
   delegate :campaign, to: :lead, allow_nil: true
 
@@ -122,14 +123,13 @@ class Contact < ApplicationRecord
   # uses_comment_extensions
   # acts_as_taggable_on :tags
   # has_paper_trail versions: { class_name: 'Version' }, ignore: [:subscribed_users]
-
   # has_fields
   # exportable
   # sortable by: ["first_name ASC", "last_name ASC", "created_at DESC", "updated_at DESC"], default: "created_at DESC"
 
   validates_presence_of :first_name, message: :missing_first_name, if: -> { Setting.require_first_names }
   validates_presence_of :last_name,  message: :missing_last_name,  if: -> { Setting.require_last_names  }
-  validate :users_for_shared_access
+  # validate :users_for_shared_access
 
   validates_length_of :first_name, maximum: 64
   validates_length_of :last_name, maximum: 64
@@ -145,12 +145,7 @@ class Contact < ApplicationRecord
   validates_length_of :facebook, maximum: 128
   validates_length_of :twitter, maximum: 128
   validates_length_of :skype, maximum: 128
-  # /////////////////  F-Mode  ///////////////////////
-
-
-  before_validation :prepare_email_attribute
-  after_create_commit :dispatch_create_event, :ip_lookup
-  after_update_commit :dispatch_update_event
+  # //////////////////////////////////////////////////////////
 
   def get_source_id(inbox_id)
     contact_inboxes.find_by!(inbox_id: inbox_id).source_id
@@ -198,7 +193,8 @@ class Contact < ApplicationRecord
   def dispatch_update_event
     Rails.configuration.dispatcher.dispatch(CONTACT_UPDATED, Time.zone.now, contact: self)
   end
-  # ////////   F-Mode  ///////////////////////
+
+  # /////////////////////////  FFCRM  /////////////////////
   def self.per_page
     20
   end
@@ -289,14 +285,14 @@ class Contact < ApplicationRecord
     end
     contact
   end
-
+  def users_for_shared_access
+    errors.add(:access, :share_contact) if self[:access] == "Shared" && permissions.none?
+  end
   private
 
   # Make sure at least one user has been selected if the contact is being shared.
   #----------------------------------------------------------------------------
-  def users_for_shared_access
-    errors.add(:access, :share_contact) if self[:access] == "Shared" && permissions.none?
-  end
+  
 
   # Handles the saving of related accounts
   #----------------------------------------------------------------------------
@@ -309,6 +305,5 @@ class Contact < ApplicationRecord
                      nil
                    end
   end
-
-  # ///////////////////  F-Mode  ///////////////////////////////
+  # ////////////////////////////////////////////////////////
 end

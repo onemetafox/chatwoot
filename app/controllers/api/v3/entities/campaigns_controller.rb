@@ -5,7 +5,7 @@
 # Fat Free CRM is freely distributable under the terms of MIT license.
 # See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
-class Api::Entities::CampaignsController < Api::EntitiesController
+class Api::V3::Entities::CampaignsController < Api::V3::EntitiesController
   # before_action :get_data_for_sidebar, only: :index
 
   # GET /campaigns

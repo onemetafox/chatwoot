@@ -1,4 +1,4 @@
-FROM chatwoot:development
+FROM aequitasventures/chatwoot-base:latest
 
 RUN chmod +x docker/entrypoints/rails.sh
 

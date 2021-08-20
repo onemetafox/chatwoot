@@ -2,6 +2,7 @@ class Api::V1::Accounts::Twitter::AuthorizationsController < Api::V1::Accounts::
   include TwitterConcern
 
   before_action :check_authorization
+  skip_before_action :verify_authenticity_token
 
   def create
     @response = twitter_client.request_oauth_token(url: twitter_callback_url)

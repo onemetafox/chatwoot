@@ -21,6 +21,7 @@ class Channel::TwitterProfile < ApplicationRecord
   validates :account_id, presence: true
   validates :profile_id, uniqueness: { scope: :account_id }
   belongs_to :account
+  has_many :posts, as: :postable
 
   has_one :inbox, as: :channel, dependent: :destroy
 
@@ -51,7 +52,7 @@ class Channel::TwitterProfile < ApplicationRecord
     Twitty::Facade.new do |config|
       config.consumer_key = ENV.fetch('TWITTER_CONSUMER_KEY', nil)
       config.consumer_secret = ENV.fetch('TWITTER_CONSUMER_SECRET', nil)
-      config.access_token = twitter_access_token
+      config.access_token        = twitter_access_token
       config.access_token_secret = twitter_access_token_secret
       config.base_url = 'https://api.twitter.com'
       config.environment = ENV.fetch('TWITTER_ENVIRONMENT', '')

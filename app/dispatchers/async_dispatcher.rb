@@ -10,12 +10,10 @@ class AsyncDispatcher < BaseDispatcher
 
   def listeners
     [
-      CampaignListener.instance,
-      CsatSurveyListener.instance,
       EventListener.instance,
-      HookListener.instance,
-      InstallationWebhookListener.instance,
-      WebhookListener.instance
+      WebhookListener.instance,
+      InstallationWebhookListener.instance, HookListener.instance,
+      CampaignListener.instance
     ]
   end
 end

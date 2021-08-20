@@ -1,4 +1,6 @@
 import { default as _agentMgmt } from './agentMgmt.json';
+import { default as _tagMgmt } from './tagMgmt.json';
+import { default as _groupMgmt } from './groupMgmt.json';
 import { default as _campaign } from './campaign.json';
 import { default as _cannedMgmt } from './cannedMgmt.json';
 import { default as _chatlist } from './chatlist.json';
@@ -16,9 +18,12 @@ import { default as _settings } from './settings.json';
 import { default as _signup } from './signup.json';
 import { default as _teamsSettings } from './teamsSettings.json';
 import { default as _integrationApps } from './integrationApps.json';
+import { default as _leads } from './leads.json'
 
 export default {
   ..._agentMgmt,
+  ..._tagMgmt,
+  ..._groupMgmt,
   ..._campaign,
   ..._cannedMgmt,
   ..._chatlist,
@@ -36,4 +41,5 @@ export default {
   ..._signup,
   ..._teamsSettings,
   ..._integrationApps,
+  ..._leads,
 };

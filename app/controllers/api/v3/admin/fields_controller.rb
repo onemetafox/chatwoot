@@ -5,7 +5,7 @@
 # Fat Free CRM is freely distributable under the terms of MIT license.
 # See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
-class Api::Admin::FieldsController < Api::Admin::ApplicationController
+class Api::V3::Admin::FieldsController < Api::V3::Admin::ApplicationController
   # before_action :setup_current_tab, only: [:index]
   # load_resource except: %i[create subform]
 
@@ -23,15 +23,15 @@ class Api::Admin::FieldsController < Api::Admin::ApplicationController
   def create
     as = field_params[:as]
     @field =
-      # if as.match?(/pair/)
-      #   CustomFieldPair.create_pair(params).first
-      # elsif as.present?
-      #   # klass = find_class(Field.lookup_class(as))
-      #   klass = Field.lookup_class(as).safe_constantize
-      #   klass.create(field_params)
-      # else
+      if as.match?(/pair/)
+        CustomFieldPair.create_pair(params).first
+      elsif as.present?
+        klass = find_class(Field.lookup_class(as))
+        klass = Field.lookup_class(as).safe_constantize
+        klass.create(field_params)
+      else
         Field.new(field_params).tap(&:valid?)
-      # end
+      end
     if @field.save
       render json: {data: @field, success: true}, status: 200
     else
@@ -55,7 +55,7 @@ class Api::Admin::FieldsController < Api::Admin::ApplicationController
   # DELETE /fields/1
   # DELETE /fields/1.xml                                        HTML and AJAX
   #----------------------------------------------------------------------------
-  def delete
+  def destroy
     @field = Field.find(params[:id])
     if @field.destroy
       render json: {data: @field, success: true}, status: 200

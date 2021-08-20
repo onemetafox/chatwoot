@@ -26,7 +26,7 @@ class Channel::FacebookPage < ApplicationRecord
   belongs_to :account
 
   has_one :inbox, as: :channel, dependent: :destroy
-
+  has_many :posts, as: :postable
   after_create_commit :subscribe
   before_destroy :unsubscribe
 

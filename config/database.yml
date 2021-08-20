@@ -3,18 +3,18 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: <%= ENV.fetch('POSTGRES_HOST', 'localhost') %>
+  database: <%= ENV.fetch('POSTGRES_DATABASE', 'chatwoot') %>
+  username: postgres
+  password: root
 
 development:
   <<: *default
-  database: <%= ENV.fetch('POSTGRES_DATABASE', 'chatwoot') %>
-  username: <%= ENV.fetch('POSTGRES_USERNAME', 'postgres') %>
-  password: <%= ENV.fetch('POSTGRES_PASSWORD', '') %>
+  #database: <%= ENV.fetch('POSTGRES_DATABASE', 'chatwoot_dev') %>
+  datebase: chatwoot
 
 test:
   <<: *default
-  database: <%= ENV.fetch('POSTGRES_DATABASE', 'chatwoot_test') %>
-  username: <%= ENV.fetch('POSTGRES_USERNAME', 'postgres') %>
-  password: <%= ENV.fetch('POSTGRES_PASSWORD', '') %>
+  #database: <%= ENV.fetch('POSTGRES_DATABASE', 'chatwoot_test') %>
 
 production:
   <<: *default

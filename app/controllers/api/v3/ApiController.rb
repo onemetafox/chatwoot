@@ -1,15 +1,13 @@
-# class Api::V3::ApiController < API::BaseController
-class Api::V3::ApiController < ActionController::API
-
+class Api::V3::ApiController < Api::BaseController
  
   include ActionController::Helpers
   
   before_action :configure_devise_parameters, if: :devise_controller?
   # before_action :authenticate_user
-  before_action :set_paper_trail_whodunnit
-  before_action :cors_preflight_check
+  # before_action :set_paper_trail_whodunnit
+  # before_action :cors_preflight_check
   
-  after_action :cors_set_access_control_headers
+  # after_action :cors_set_access_control_headers
   
   helper_method :klass
   
@@ -86,6 +84,17 @@ class Api::V3::ApiController < ActionController::API
     headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
     headers['Access-Control-Max-Age'] = "1728000"
   end
+  def find_class(asset)
+    # Rails.application.eager_load! unless Rails.application.config.cache_classes
+    classes = ActiveRecord::Base.descendants.map(&:name)
+    find = classes.find { |m| m == asset.classify }
+    if find
+      find.safe_constantize
+    else
+      # raise "Unknown resource"
+      asset
+    end
+  end
   # def current_user
   #   @current_user = session['dan@example.com']
   # end
@@ -94,9 +103,9 @@ class Api::V3::ApiController < ActionController::API
     
     # if !session['dan@example.com']
     if true
-      user = session['dan@example.com']
+      # user = session['dan@example.com']
       # @current_user = User.find(user["id"])
-      @current_user = User.find(2)
+      @current_user = User.find(1)
     else
       render json: {success: false, msg: "you should login"}, status: 200
     end

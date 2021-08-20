@@ -54,6 +54,7 @@ to display a collection of resources in an HTML table.
 
   <tbody>
     <% resources.each do |resource| %>
+      <% next if resource.try(:owner_type) == "PlatformAppPermissible" %>
       <tr class="js-table-row"
           tabindex="0"
           <% if valid_action? :show, collection_presenter.resource_name %>
@@ -73,11 +74,17 @@ to display a collection of resources in an HTML table.
         <% end %>
 
         <% if valid_action? :edit, collection_presenter.resource_name %>
-          <td><%= link_to(
-            t("administrate.actions.edit"),
-            [:edit, namespace, resource],
-            class: "action-edit",
-          ) if show_action? :edit, resource%></td>
+          <td>
+            <% if resource.class.name == "Logo" %>
+              <%= link_to "Edit Settings", edit_super_admin_logo_path(resource) %>
+            <% else %>
+              <%= link_to(
+                t("administrate.actions.edit"),
+                [:edit, namespace, resource],
+                class: "action-edit",
+              ) if show_action? :edit, resource%>
+            <% end %>
+          </td>
         <% end %>
 
         <% if valid_action? :destroy, collection_presenter.resource_name %>

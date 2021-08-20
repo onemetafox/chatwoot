@@ -2,21 +2,13 @@
 #
 # Table name: agent_bots
 #
-#  id           :bigint           not null, primary key
-#  description  :string
-#  name         :string
-#  outgoing_url :string
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  account_id   :bigint
-#
-# Indexes
-#
-#  index_agent_bots_on_account_id  (account_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (account_id => accounts.id)
+#  id                               :bigint           not null, primary key
+#  description                      :string
+#  hide_input_for_bot_conversations :boolean          default(FALSE)
+#  name                             :string
+#  outgoing_url                     :string
+#  created_at                       :datetime         not null
+#  updated_at                       :datetime         not null
 #
 
 class AgentBot < ApplicationRecord

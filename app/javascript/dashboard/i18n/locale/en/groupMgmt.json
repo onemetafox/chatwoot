@@ -1,0 +1,96 @@
+{
+  "GROUP_MGMT": {
+    "HEADER": "Groups",
+    "HEADER_BTN_TXT": "Add Group",
+    "LOADING": "Fetching Group List",
+    "SIDEBAR_TXT": "<p><b>Groups</b></p> <p> An <b>Group</b> is a member of your Customer Support team. </p><p> Groups will be able to view and reply to messages from your users. The list shows all groups currently in your account. </p><p> Click on <b>Add Group</b> to add a new group. Group you add will receive an email with a confirmation link to activate their account, after which they can access %{projectName} and respond to messages. </p><p> Access to %{projectName}'s features are based on following roles. </p><p> <b>Group</b> - Groups with this role can only access inboxes, reports and conversations. They can assign conversations to other groups or themselves and resolve conversations.</p><p> <b>Administrator</b> - Administrator will have access to all %{projectName} features enabled for your account, including settings, along with all of a normal groups' privileges.</p>",
+    "GROUP_TYPES": {
+      "ADMINISTRATOR": "Administrator",
+      "GROUP": "Group"
+    },
+    "LIST": {
+      "404": "There are no groups associated to this account",
+      "TITLE": "Manage groups in your team",
+      "DESC": "You can add/remove groups to/in your team.",
+      "NAME": "Name",
+      "EMAIL": "EMAIL",
+      "STATUS": "Status",
+      "ACTIONS": "Actions",
+      "VERIFIED": "Verified",
+      "VERIFICATION_PENDING": "Verification Pending"
+    },
+    "ADD": {
+      "TITLE": "Add group to your team",
+      "DESC": "You can add people who will be able to handle support for your inboxes.",
+      "CANCEL_BUTTON_TEXT": "Cancel",
+      "FORM": {
+        "NAME": {
+          "LABEL": "Group Name",
+          "PLACEHOLDER": "Please enter a name of the group"
+        },
+        "GROUP_TYPE": {
+          "LABEL": "Role",
+          "PLACEHOLDER": "Please select a role",
+          "ERROR": "Role is required"
+        },
+        "EMAIL": {
+          "LABEL": "Email Address",
+          "PLACEHOLDER": "Please enter an email address of the group"
+        },
+        "SUBMIT": "Add Group"
+      },
+      "API": {
+        "SUCCESS_MESSAGE": "Group added successfully",
+        "EXIST_MESSAGE": "Group email already in use, Please try another email address",
+        "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+      }
+    },
+    "DELETE": {
+      "BUTTON_TEXT": "Delete",
+      "API": {
+        "SUCCESS_MESSAGE": "Group deleted successfully",
+        "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+      },
+      "CONFIRM": {
+        "TITLE": "Confirm Deletion",
+        "MESSAGE": "Are you sure to delete ",
+        "YES": "Yes, Delete ",
+        "NO": "No, Keep "
+      }
+    },
+    "EDIT": {
+      "TITLE": "Edit group",
+      "FORM": {
+        "NAME": {
+          "LABEL": "Group Name",
+          "PLACEHOLDER": "Please enter a name of the group"
+        },
+        "GROUP_TYPE": {
+          "LABEL": "Role",
+          "PLACEHOLDER": "Please select a role",
+          "ERROR": "Role is required"
+        },
+        "EMAIL": {
+          "LABEL": "Email Address",
+          "PLACEHOLDER": "Please enter an email address of the group"
+        },
+        "SUBMIT": "Edit Group"
+      },
+      "BUTTON_TEXT": "Edit",
+      "CANCEL_BUTTON_TEXT": "Cancel",
+      "API": {
+        "SUCCESS_MESSAGE": "Group updated successfully",
+        "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+      },
+      "PASSWORD_RESET": {
+        "ADMIN_RESET_BUTTON": "Reset Password",
+        "ADMIN_SUCCESS_MESSAGE": "An email with reset password instructions has been sent to the group",
+        "SUCCESS_MESSAGE": "Group password reset successfully",
+        "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+      }
+    },
+    "SEARCH": {
+      "NO_RESULTS": "No groups found."
+    }
+  }
+}

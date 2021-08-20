@@ -23,7 +23,6 @@
 #
 
 class Notification < ApplicationRecord
-  include MessageFormatHelper
   belongs_to :account
   belongs_to :user
 
@@ -74,7 +73,7 @@ class Notification < ApplicationRecord
         content: primary_actor.content&.truncate_words(10)
       )
     when 'conversation_mention'
-      "[##{conversation.display_id}] #{transform_user_mention_content primary_actor.content}"
+      I18n.t('notifications.notification_title.conversation_mention', display_id: conversation.display_id, name: secondary_actor.name)
     else
       ''
     end

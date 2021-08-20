@@ -166,4 +166,43 @@ export default {
   ADD_CONTACT_NOTE: 'ADD_CONTACT_NOTE',
   EDIT_CONTACT_NOTE: 'EDIT_CONTACT_NOTE',
   DELETE_CONTACT_NOTE: 'DELETE_CONTACT_NOTE',
+
+  SET_ERROR: 'SET_ERROR',
+  SET_MSG: 'SET_MSG',
+  // Admin
+  admin: {
+    viewsearch: 'MAUsersViewSearch',
+    users: {
+      editID: 'MAUsersEditID',
+      set: 'MAUsersSet',
+      query: 'MAUsersQuery',
+    },
+    groups: {
+      editID: 'MAGroupsEditID',
+      get: 'MAGroupsGet',
+    },
+    fields: {
+      selectCatename: 'MAFieldsSelectCatename',
+      setCEGroupID: 'MAFieldsSetCEgroupID',
+      setCEFieldData: 'MAFieldsSetCEFieldData',
+      setCategories: 'MAFieldsSetCategories',
+      editGroup: 'MAFieldsEditGroup',
+      editField: 'MAFieldsEditField',
+    },
+    tags: {
+      editID: 'MATagsEditID',
+      get: 'MATagsGet',
+    }
+  },
+  entity: {
+    leads: {
+      get: 'MELeadsGet',
+      getone: 'MELeadGetOne',
+      query: 'MELeadQuery',
+      queryHistory: 'MELeadQueryHis',
+      editID: 'MEEditID',
+      editing: 'MEEditing',
+      page: 'MEPage'
+    }
+  }
 };

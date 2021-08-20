@@ -1,0 +1,96 @@
+{
+  "TAG_MGMT": {
+    "HEADER": "Tags",
+    "HEADER_BTN_TXT": "Add Tag",
+    "LOADING": "Fetching Tag List",
+    "SIDEBAR_TXT": "<p><b>Tags</b></p> <p> An <b>Tag</b> is a member of your Customer Support team. </p><p> Tags will be able to view and reply to messages from your users. The list shows all tags currently in your account. </p><p> Click on <b>Add Tag</b> to add a new tag. Tag you add will receive an email with a confirmation link to activate their account, after which they can access %{projectName} and respond to messages. </p><p> Access to %{projectName}'s features are based on following roles. </p><p> <b>Tag</b> - Tags with this role can only access inboxes, reports and conversations. They can assign conversations to other tags or themselves and resolve conversations.</p><p> <b>Administrator</b> - Administrator will have access to all %{projectName} features enabled for your account, including settings, along with all of a normal tags' privileges.</p>",
+    "TAG_TYPES": {
+      "ADMINISTRATOR": "Administrator",
+      "TAG": "Tag"
+    },
+    "LIST": {
+      "404": "There are no tags associated to this account",
+      "TITLE": "Manage tags in your team",
+      "DESC": "You can add/remove tags to/in your team.",
+      "NAME": "Name",
+      "EMAIL": "EMAIL",
+      "STATUS": "Status",
+      "ACTIONS": "Actions",
+      "VERIFIED": "Verified",
+      "VERIFICATION_PENDING": "Verification Pending"
+    },
+    "ADD": {
+      "TITLE": "Add tag to your team",
+      "DESC": "You can add people who will be able to handle support for your inboxes.",
+      "CANCEL_BUTTON_TEXT": "Cancel",
+      "FORM": {
+        "NAME": {
+          "LABEL": "Tag Name",
+          "PLACEHOLDER": "Please enter a name of the tag"
+        },
+        "TAG_TYPE": {
+          "LABEL": "Role",
+          "PLACEHOLDER": "Please select a role",
+          "ERROR": "Role is required"
+        },
+        "EMAIL": {
+          "LABEL": "Email Address",
+          "PLACEHOLDER": "Please enter an email address of the tag"
+        },
+        "SUBMIT": "Add Tag"
+      },
+      "API": {
+        "SUCCESS_MESSAGE": "Tag added successfully",
+        "EXIST_MESSAGE": "Tag email already in use, Please try another email address",
+        "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+      }
+    },
+    "DELETE": {
+      "BUTTON_TEXT": "Delete",
+      "API": {
+        "SUCCESS_MESSAGE": "Tag deleted successfully",
+        "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+      },
+      "CONFIRM": {
+        "TITLE": "Confirm Deletion",
+        "MESSAGE": "Are you sure to delete ",
+        "YES": "Yes, Delete ",
+        "NO": "No, Keep "
+      }
+    },
+    "EDIT": {
+      "TITLE": "Edit tag",
+      "FORM": {
+        "NAME": {
+          "LABEL": "Tag Name",
+          "PLACEHOLDER": "Please enter a name of the tag"
+        },
+        "TAG_TYPE": {
+          "LABEL": "Role",
+          "PLACEHOLDER": "Please select a role",
+          "ERROR": "Role is required"
+        },
+        "EMAIL": {
+          "LABEL": "Email Address",
+          "PLACEHOLDER": "Please enter an email address of the tag"
+        },
+        "SUBMIT": "Edit Tag"
+      },
+      "BUTTON_TEXT": "Edit",
+      "CANCEL_BUTTON_TEXT": "Cancel",
+      "API": {
+        "SUCCESS_MESSAGE": "Tag updated successfully",
+        "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+      },
+      "PASSWORD_RESET": {
+        "ADMIN_RESET_BUTTON": "Reset Password",
+        "ADMIN_SUCCESS_MESSAGE": "An email with reset password instructions has been sent to the tag",
+        "SUCCESS_MESSAGE": "Tag password reset successfully",
+        "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+      }
+    },
+    "SEARCH": {
+      "NO_RESULTS": "No tags found."
+    }
+  }
+}

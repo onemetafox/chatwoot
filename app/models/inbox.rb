@@ -6,7 +6,6 @@
 #
 #  id                     :integer          not null, primary key
 #  channel_type           :string
-#  csat_survey_enabled    :boolean          default(FALSE)
 #  email_address          :string
 #  enable_auto_assignment :boolean          default(TRUE)
 #  enable_email_collect   :boolean          default(TRUE)
@@ -67,11 +66,11 @@ class Inbox < ApplicationRecord
   end
 
   def facebook?
-    channel_type == 'Channel::FacebookPage'
+    channel.class.name.to_s == 'Channel::FacebookPage'
   end
 
   def web_widget?
-    channel_type == 'Channel::WebWidget'
+    channel.class.name.to_s == 'Channel::WebWidget'
   end
 
   def inbox_type
